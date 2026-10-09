@@ -19,6 +19,8 @@ public final class Scenario {
 
     public static final String UNKNOWN_DEPENDENCY_CATALOG = "catalog/exemplos/catalogo-dependencia-inexistente.json";
 
+    public static final String THOUSAND_TOOLS_CATALOG = "catalog/exemplos/catalogo-1000.json";
+
     public static final String NOTA_FISCAL = "Emita a nota fiscal do pedido de venda 42";
 
     private static final String RULE = "=".repeat(100);
