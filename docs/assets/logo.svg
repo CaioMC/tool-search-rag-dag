@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-labelledby="title">
+  <title id="title">tool-search-rag-dag: um robô segurando uma chave inglesa</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f46e5"/>
+      <stop offset="1" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- fundo -->
+  <circle cx="100" cy="100" r="96" fill="url(#bg)"/>
+
+  <!-- grafo ao fundo (o DAG) -->
+  <g stroke="#ffffff" stroke-opacity="0.25" stroke-width="3" fill="#ffffff" fill-opacity="0.25">
+    <line x1="34" y1="62" x2="56" y2="38"/>
+    <line x1="34" y1="62" x2="40" y2="96"/>
+    <circle cx="34" cy="62" r="6"/>
+    <circle cx="56" cy="38" r="5"/>
+    <circle cx="40" cy="96" r="5"/>
+  </g>
+
+  <!-- antena -->
+  <line x1="100" y1="44" x2="100" y2="30" stroke="#e2e8f0" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="100" cy="26" r="7" fill="#facc15"/>
+
+  <!-- cabeça -->
+  <rect x="62" y="44" width="76" height="56" rx="16" fill="#f8fafc"/>
+  <rect x="72" y="56" width="56" height="30" rx="10" fill="#1e293b"/>
+  <circle cx="88" cy="71" r="7" fill="#22d3ee"/>
+  <circle cx="112" cy="71" r="7" fill="#22d3ee"/>
+  <rect x="55" y="62" width="8" height="20" rx="4" fill="#cbd5e1"/>
+  <rect x="137" y="62" width="8" height="20" rx="4" fill="#cbd5e1"/>
+
+  <!-- corpo -->
+  <rect x="70" y="106" width="60" height="50" rx="12" fill="#f8fafc"/>
+  <circle cx="100" cy="124" r="8" fill="#facc15"/>
+  <rect x="86" y="138" width="28" height="6" rx="3" fill="#cbd5e1"/>
+
+  <!-- braço esquerdo -->
+  <rect x="50" y="112" width="16" height="34" rx="8" fill="#e2e8f0"/>
+
+  <!-- braço direito erguido, segurando a chave inglesa -->
+  <defs>
+    <mask id="jaw">
+      <rect x="0" y="0" width="200" height="200" fill="#ffffff"/>
+      <rect x="165" y="44" width="10" height="20" rx="2" fill="#000000" transform="rotate(40 170 62)"/>
+    </mask>
+  </defs>
+  <line x1="134" y1="124" x2="150" y2="106" stroke="#e2e8f0" stroke-width="16" stroke-linecap="round"/>
+  <g mask="url(#jaw)" fill="#facc15">
+    <line x1="146" y1="110" x2="166" y2="70" stroke="#facc15" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="170" cy="62" r="14"/>
+  </g>
+  <circle cx="150" cy="106" r="9" fill="#f8fafc"/>
+
+  <!-- pernas -->
+  <rect x="80" y="156" width="14" height="18" rx="6" fill="#e2e8f0"/>
+  <rect x="106" y="156" width="14" height="18" rx="6" fill="#e2e8f0"/>
+</svg>

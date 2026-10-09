@@ -1,0 +1,9 @@
+{
+  "id": "resp_2",
+  "object": "response",
+  "model": "gpt-5.4-mini",
+  "output": [
+    {"id": "tsc_2", "arguments": {"goal": "Encontrar ferramentas para emitir a nota fiscal do pedido 42"}, "call_id": "call_xw9", "execution": "client", "status": "completed", "type": "tool_search_call", "created_by": null}
+  ],
+  "usage": {"input_tokens": 58, "input_tokens_details": {"cached_tokens": 0}, "output_tokens": 49}
+}

@@ -1,0 +1,55 @@
+{
+  "namespaces": [
+    {
+      "name": "vendas",
+      "description": "Vendas: pedidos e crédito."
+    }
+  ],
+  "tools": [
+    {
+      "name": "consultar_pedido",
+      "namespace": "vendas",
+      "description": "Consulta o pedido pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do pedido.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "analisar_credito",
+      "namespace": "vendas",
+      "description": "Analisa o crédito do cliente do pedido.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do pedido.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_pedido"
+      ]
+    },
+    {
+      "name": "aprovar_pedido",
+      "namespace": "vendas",
+      "description": "Aprova o pedido de venda.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do pedido.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "analisar_credito"
+      ]
+    }
+  ]
+}

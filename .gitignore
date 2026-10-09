@@ -1,0 +1,10 @@
+target/
+.idea/
+*.iml
+.env
+
+# Segredos e configuração local
+.env.*
+!.env.example
+*.pem
+*.key

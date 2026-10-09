@@ -1,0 +1,5 @@
+{"tools": [
+  {"name": "aprovar_pedido", "namespace": "vendas", "description": "Aprova o pedido.", "dependsOn": ["analisar_credito"]},
+  {"name": "analisar_credito", "namespace": "vendas", "description": "Analisa o crédito.", "dependsOn": ["consultar_pedido"]},
+  {"name": "consultar_pedido", "namespace": "vendas", "description": "Consulta o pedido.", "dependsOn": ["aprovar_pedido"]}
+]}

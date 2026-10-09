@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Atalho para a CLI. Compile antes com: mvn package
+set -euo pipefail
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+JAR="$DIR/target/tool-search-rag-dag.jar"
+
+if [[ ! -f "$JAR" ]]; then
+    echo "Jar não encontrado. Rode primeiro: mvn package" >&2
+    exit 1
+fi
+
+# o .env da pasta do projeto vale mesmo rodando ./toolsearch de outro diretório
+export TOOLSEARCH_ENV_FILE="${TOOLSEARCH_ENV_FILE:-$DIR/.env}"
+
+exec java -jar "$JAR" "$@"

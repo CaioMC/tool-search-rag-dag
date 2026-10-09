@@ -1,0 +1,5971 @@
+{
+  "namespaces": [
+    {
+      "name": "vendas_cliente",
+      "description": "Vendas - cliente."
+    },
+    {
+      "name": "vendas_pedido_venda",
+      "description": "Vendas - pedido de venda."
+    },
+    {
+      "name": "vendas_orcamento",
+      "description": "Vendas - orçamento de venda."
+    },
+    {
+      "name": "vendas_tabela_preco",
+      "description": "Vendas - tabela de preço."
+    },
+    {
+      "name": "vendas_comissao",
+      "description": "Vendas - comissão de vendedor."
+    },
+    {
+      "name": "faturamento_nota_fiscal",
+      "description": "Faturamento - nota fiscal (NF-e)."
+    },
+    {
+      "name": "faturamento_fatura",
+      "description": "Faturamento - fatura."
+    },
+    {
+      "name": "faturamento_boleto",
+      "description": "Faturamento - boleto bancário."
+    },
+    {
+      "name": "faturamento_devolucao",
+      "description": "Faturamento - devolução de venda."
+    },
+    {
+      "name": "faturamento_remessa_cobranca",
+      "description": "Faturamento - remessa de cobrança."
+    },
+    {
+      "name": "estoque_produto",
+      "description": "Estoque - produto."
+    },
+    {
+      "name": "estoque_saldo_estoque",
+      "description": "Estoque - saldo de estoque."
+    },
+    {
+      "name": "estoque_lote",
+      "description": "Estoque - lote de produto."
+    },
+    {
+      "name": "estoque_inventario",
+      "description": "Estoque - inventário."
+    },
+    {
+      "name": "estoque_transferencia",
+      "description": "Estoque - transferência entre armazéns."
+    },
+    {
+      "name": "compras_fornecedor",
+      "description": "Compras - fornecedor."
+    },
+    {
+      "name": "compras_pedido_compra",
+      "description": "Compras - pedido de compra."
+    },
+    {
+      "name": "compras_cotacao",
+      "description": "Compras - cotação de compra."
+    },
+    {
+      "name": "compras_solicitacao_compra",
+      "description": "Compras - solicitação de compra."
+    },
+    {
+      "name": "compras_contrato_fornecimento",
+      "description": "Compras - contrato de fornecimento."
+    },
+    {
+      "name": "financeiro_titulo_receber",
+      "description": "Financeiro - título a receber."
+    },
+    {
+      "name": "financeiro_titulo_pagar",
+      "description": "Financeiro - título a pagar."
+    },
+    {
+      "name": "financeiro_conta_bancaria",
+      "description": "Financeiro - conta bancária."
+    },
+    {
+      "name": "financeiro_fluxo_caixa",
+      "description": "Financeiro - fluxo de caixa."
+    },
+    {
+      "name": "financeiro_conciliacao",
+      "description": "Financeiro - conciliação bancária."
+    },
+    {
+      "name": "fiscal_imposto",
+      "description": "Fiscal - regra de imposto."
+    },
+    {
+      "name": "fiscal_cfop",
+      "description": "Fiscal - CFOP."
+    },
+    {
+      "name": "fiscal_apuracao_icms",
+      "description": "Fiscal - apuração de ICMS."
+    },
+    {
+      "name": "fiscal_sped",
+      "description": "Fiscal - arquivo SPED."
+    },
+    {
+      "name": "fiscal_certificado_digital",
+      "description": "Fiscal - certificado digital."
+    },
+    {
+      "name": "contabilidade_lancamento_contabil",
+      "description": "Contabilidade - lançamento contábil."
+    },
+    {
+      "name": "contabilidade_plano_contas",
+      "description": "Contabilidade - conta do plano de contas."
+    },
+    {
+      "name": "contabilidade_centro_custo",
+      "description": "Contabilidade - centro de custo."
+    },
+    {
+      "name": "contabilidade_balancete",
+      "description": "Contabilidade - balancete."
+    },
+    {
+      "name": "contabilidade_fechamento_contabil",
+      "description": "Contabilidade - fechamento contábil."
+    },
+    {
+      "name": "rh_funcionario",
+      "description": "Recursos humanos - funcionário."
+    },
+    {
+      "name": "rh_folha_pagamento",
+      "description": "Recursos humanos - folha de pagamento."
+    },
+    {
+      "name": "rh_ferias",
+      "description": "Recursos humanos - férias."
+    },
+    {
+      "name": "rh_ponto",
+      "description": "Recursos humanos - marcação de ponto."
+    },
+    {
+      "name": "rh_beneficio",
+      "description": "Recursos humanos - benefício."
+    },
+    {
+      "name": "logistica_transportadora",
+      "description": "Logística - transportadora."
+    },
+    {
+      "name": "logistica_frete",
+      "description": "Logística - frete."
+    },
+    {
+      "name": "logistica_entrega",
+      "description": "Logística - entrega."
+    },
+    {
+      "name": "logistica_rota",
+      "description": "Logística - rota de entrega."
+    },
+    {
+      "name": "logistica_romaneio",
+      "description": "Logística - romaneio de carga."
+    },
+    {
+      "name": "crm_oportunidade",
+      "description": "CRM - oportunidade de venda."
+    },
+    {
+      "name": "crm_contato",
+      "description": "CRM - contato."
+    },
+    {
+      "name": "crm_campanha",
+      "description": "CRM - campanha de marketing."
+    },
+    {
+      "name": "crm_atendimento",
+      "description": "CRM - atendimento ao cliente."
+    },
+    {
+      "name": "crm_contrato_cliente",
+      "description": "CRM - contrato de cliente."
+    }
+  ],
+  "tools": [
+    {
+      "name": "consultar_cliente",
+      "description": "Consulta os dados de um(a) cliente pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) cliente.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "vendas_cliente",
+      "domain": "vendas"
+    },
+    {
+      "name": "pesquisar_cliente",
+      "description": "Pesquisa e lista cliente por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "vendas_cliente",
+      "domain": "vendas"
+    },
+    {
+      "name": "incluir_cliente",
+      "description": "Inclui (cadastra) um(a) novo(a) cliente.",
+      "parameters": [
+        {
+          "name": "nome",
+          "type": "string",
+          "description": "Campo 'nome' do(a) cliente.",
+          "required": true
+        },
+        {
+          "name": "cnpj",
+          "type": "string",
+          "description": "Campo 'cnpj' do(a) cliente.",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Campo 'email' do(a) cliente.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "vendas_cliente",
+      "domain": "vendas"
+    },
+    {
+      "name": "alterar_cliente",
+      "description": "Altera os dados de um(a) cliente existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) cliente.",
+          "required": true
+        },
+        {
+          "name": "nome",
+          "type": "string",
+          "description": "Campo 'nome' do(a) cliente.",
+          "required": false
+        },
+        {
+          "name": "cnpj",
+          "type": "string",
+          "description": "Campo 'cnpj' do(a) cliente.",
+          "required": false
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Campo 'email' do(a) cliente.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_cliente"
+      ],
+      "namespace": "vendas_cliente",
+      "domain": "vendas"
+    },
+    {
+      "name": "analisar_credito_cliente",
+      "description": "Analisa o limite de crédito e o risco de inadimplência de um cliente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) cliente.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "pesquisar_titulo_receber"
+      ],
+      "namespace": "vendas_cliente",
+      "domain": "vendas"
+    },
+    {
+      "name": "consultar_pedido_venda",
+      "description": "Consulta os dados de um(a) pedido de venda pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) pedido de venda.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "vendas_pedido_venda",
+      "domain": "vendas"
+    },
+    {
+      "name": "pesquisar_pedido_venda",
+      "description": "Pesquisa e lista pedido de venda por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "vendas_pedido_venda",
+      "domain": "vendas"
+    },
+    {
+      "name": "incluir_pedido_venda",
+      "description": "Inclui (cadastra) um(a) novo(a) pedido de venda.",
+      "parameters": [
+        {
+          "name": "codigo_cliente",
+          "type": "string",
+          "description": "Campo 'codigo_cliente' do(a) pedido de venda.",
+          "required": true
+        },
+        {
+          "name": "itens",
+          "type": "string",
+          "description": "Campo 'itens' do(a) pedido de venda.",
+          "required": true
+        },
+        {
+          "name": "condicao_pagamento",
+          "type": "string",
+          "description": "Campo 'condicao_pagamento' do(a) pedido de venda.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_cliente",
+        "consultar_produto",
+        "consultar_tabela_preco"
+      ],
+      "namespace": "vendas_pedido_venda",
+      "domain": "vendas"
+    },
+    {
+      "name": "alterar_pedido_venda",
+      "description": "Altera os dados de um(a) pedido de venda existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) pedido de venda.",
+          "required": true
+        },
+        {
+          "name": "codigo_cliente",
+          "type": "string",
+          "description": "Campo 'codigo_cliente' do(a) pedido de venda.",
+          "required": false
+        },
+        {
+          "name": "itens",
+          "type": "string",
+          "description": "Campo 'itens' do(a) pedido de venda.",
+          "required": false
+        },
+        {
+          "name": "condicao_pagamento",
+          "type": "string",
+          "description": "Campo 'condicao_pagamento' do(a) pedido de venda.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_pedido_venda"
+      ],
+      "namespace": "vendas_pedido_venda",
+      "domain": "vendas"
+    },
+    {
+      "name": "aprovar_pedido_venda",
+      "description": "Aprova um pedido de venda bloqueado por regra comercial ou de crédito.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) pedido de venda.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "analisar_credito_cliente"
+      ],
+      "namespace": "vendas_pedido_venda",
+      "domain": "vendas"
+    },
+    {
+      "name": "consultar_orcamento",
+      "description": "Consulta os dados de um(a) orçamento de venda pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) orçamento de venda.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "vendas_orcamento",
+      "domain": "vendas"
+    },
+    {
+      "name": "pesquisar_orcamento",
+      "description": "Pesquisa e lista orçamento de venda por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "vendas_orcamento",
+      "domain": "vendas"
+    },
+    {
+      "name": "incluir_orcamento",
+      "description": "Inclui (cadastra) um(a) novo(a) orçamento de venda.",
+      "parameters": [
+        {
+          "name": "codigo_cliente",
+          "type": "string",
+          "description": "Campo 'codigo_cliente' do(a) orçamento de venda.",
+          "required": true
+        },
+        {
+          "name": "itens",
+          "type": "string",
+          "description": "Campo 'itens' do(a) orçamento de venda.",
+          "required": true
+        },
+        {
+          "name": "validade",
+          "type": "string",
+          "description": "Campo 'validade' do(a) orçamento de venda.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "vendas_orcamento",
+      "domain": "vendas"
+    },
+    {
+      "name": "alterar_orcamento",
+      "description": "Altera os dados de um(a) orçamento de venda existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) orçamento de venda.",
+          "required": true
+        },
+        {
+          "name": "codigo_cliente",
+          "type": "string",
+          "description": "Campo 'codigo_cliente' do(a) orçamento de venda.",
+          "required": false
+        },
+        {
+          "name": "itens",
+          "type": "string",
+          "description": "Campo 'itens' do(a) orçamento de venda.",
+          "required": false
+        },
+        {
+          "name": "validade",
+          "type": "string",
+          "description": "Campo 'validade' do(a) orçamento de venda.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_orcamento"
+      ],
+      "namespace": "vendas_orcamento",
+      "domain": "vendas"
+    },
+    {
+      "name": "converter_orcamento_em_pedido",
+      "description": "Converte um orçamento aprovado pelo cliente em pedido de venda.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) orçamento de venda.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "incluir_pedido_venda"
+      ],
+      "namespace": "vendas_orcamento",
+      "domain": "vendas"
+    },
+    {
+      "name": "consultar_tabela_preco",
+      "description": "Consulta os dados de um(a) tabela de preço pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) tabela de preço.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "vendas_tabela_preco",
+      "domain": "vendas"
+    },
+    {
+      "name": "pesquisar_tabela_preco",
+      "description": "Pesquisa e lista tabela de preço por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "vendas_tabela_preco",
+      "domain": "vendas"
+    },
+    {
+      "name": "incluir_tabela_preco",
+      "description": "Inclui (cadastra) um(a) novo(a) tabela de preço.",
+      "parameters": [
+        {
+          "name": "descricao",
+          "type": "string",
+          "description": "Campo 'descricao' do(a) tabela de preço.",
+          "required": true
+        },
+        {
+          "name": "vigencia",
+          "type": "string",
+          "description": "Campo 'vigencia' do(a) tabela de preço.",
+          "required": true
+        },
+        {
+          "name": "moeda",
+          "type": "string",
+          "description": "Campo 'moeda' do(a) tabela de preço.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "vendas_tabela_preco",
+      "domain": "vendas"
+    },
+    {
+      "name": "alterar_tabela_preco",
+      "description": "Altera os dados de um(a) tabela de preço existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) tabela de preço.",
+          "required": true
+        },
+        {
+          "name": "descricao",
+          "type": "string",
+          "description": "Campo 'descricao' do(a) tabela de preço.",
+          "required": false
+        },
+        {
+          "name": "vigencia",
+          "type": "string",
+          "description": "Campo 'vigencia' do(a) tabela de preço.",
+          "required": false
+        },
+        {
+          "name": "moeda",
+          "type": "string",
+          "description": "Campo 'moeda' do(a) tabela de preço.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_tabela_preco"
+      ],
+      "namespace": "vendas_tabela_preco",
+      "domain": "vendas"
+    },
+    {
+      "name": "aplicar_reajuste_tabela_preco",
+      "description": "Aplica reajuste percentual em todos os itens de uma tabela de preço.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) tabela de preço.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_tabela_preco"
+      ],
+      "namespace": "vendas_tabela_preco",
+      "domain": "vendas"
+    },
+    {
+      "name": "consultar_comissao",
+      "description": "Consulta os dados de um(a) comissão de vendedor pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) comissão de vendedor.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "vendas_comissao",
+      "domain": "vendas"
+    },
+    {
+      "name": "pesquisar_comissao",
+      "description": "Pesquisa e lista comissão de vendedor por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "vendas_comissao",
+      "domain": "vendas"
+    },
+    {
+      "name": "incluir_comissao",
+      "description": "Inclui (cadastra) um(a) novo(a) comissão de vendedor.",
+      "parameters": [
+        {
+          "name": "codigo_vendedor",
+          "type": "string",
+          "description": "Campo 'codigo_vendedor' do(a) comissão de vendedor.",
+          "required": true
+        },
+        {
+          "name": "percentual",
+          "type": "string",
+          "description": "Campo 'percentual' do(a) comissão de vendedor.",
+          "required": true
+        },
+        {
+          "name": "periodo",
+          "type": "string",
+          "description": "Campo 'periodo' do(a) comissão de vendedor.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "vendas_comissao",
+      "domain": "vendas"
+    },
+    {
+      "name": "alterar_comissao",
+      "description": "Altera os dados de um(a) comissão de vendedor existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) comissão de vendedor.",
+          "required": true
+        },
+        {
+          "name": "codigo_vendedor",
+          "type": "string",
+          "description": "Campo 'codigo_vendedor' do(a) comissão de vendedor.",
+          "required": false
+        },
+        {
+          "name": "percentual",
+          "type": "string",
+          "description": "Campo 'percentual' do(a) comissão de vendedor.",
+          "required": false
+        },
+        {
+          "name": "periodo",
+          "type": "string",
+          "description": "Campo 'periodo' do(a) comissão de vendedor.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_comissao"
+      ],
+      "namespace": "vendas_comissao",
+      "domain": "vendas"
+    },
+    {
+      "name": "calcular_comissao",
+      "description": "Calcula a comissão dos vendedores sobre as vendas faturadas no período.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) comissão de vendedor.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "pesquisar_pedido_venda"
+      ],
+      "namespace": "vendas_comissao",
+      "domain": "vendas"
+    },
+    {
+      "name": "consultar_nota_fiscal",
+      "description": "Consulta os dados de um(a) nota fiscal (NF-e) pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) nota fiscal (NF-e).",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "faturamento_nota_fiscal",
+      "domain": "faturamento"
+    },
+    {
+      "name": "pesquisar_nota_fiscal",
+      "description": "Pesquisa e lista nota fiscal (NF-e) por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "faturamento_nota_fiscal",
+      "domain": "faturamento"
+    },
+    {
+      "name": "incluir_nota_fiscal",
+      "description": "Inclui (cadastra) um(a) novo(a) nota fiscal (NF-e).",
+      "parameters": [
+        {
+          "name": "codigo_pedido",
+          "type": "string",
+          "description": "Campo 'codigo_pedido' do(a) nota fiscal (NF-e).",
+          "required": true
+        },
+        {
+          "name": "serie",
+          "type": "string",
+          "description": "Campo 'serie' do(a) nota fiscal (NF-e).",
+          "required": true
+        },
+        {
+          "name": "tipo_operacao",
+          "type": "string",
+          "description": "Campo 'tipo_operacao' do(a) nota fiscal (NF-e).",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_pedido_venda"
+      ],
+      "namespace": "faturamento_nota_fiscal",
+      "domain": "faturamento"
+    },
+    {
+      "name": "alterar_nota_fiscal",
+      "description": "Altera os dados de um(a) nota fiscal (NF-e) existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) nota fiscal (NF-e).",
+          "required": true
+        },
+        {
+          "name": "codigo_pedido",
+          "type": "string",
+          "description": "Campo 'codigo_pedido' do(a) nota fiscal (NF-e).",
+          "required": false
+        },
+        {
+          "name": "serie",
+          "type": "string",
+          "description": "Campo 'serie' do(a) nota fiscal (NF-e).",
+          "required": false
+        },
+        {
+          "name": "tipo_operacao",
+          "type": "string",
+          "description": "Campo 'tipo_operacao' do(a) nota fiscal (NF-e).",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_nota_fiscal"
+      ],
+      "namespace": "faturamento_nota_fiscal",
+      "domain": "faturamento"
+    },
+    {
+      "name": "emitir_nota_fiscal",
+      "description": "Emite e transmite a nota fiscal eletrônica (NF-e) para a SEFAZ e retorna a chave de acesso.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) nota fiscal (NF-e).",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_pedido_venda",
+        "calcular_impostos_operacao",
+        "validar_certificado_digital"
+      ],
+      "namespace": "faturamento_nota_fiscal",
+      "domain": "faturamento"
+    },
+    {
+      "name": "consultar_fatura",
+      "description": "Consulta os dados de um(a) fatura pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) fatura.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "faturamento_fatura",
+      "domain": "faturamento"
+    },
+    {
+      "name": "pesquisar_fatura",
+      "description": "Pesquisa e lista fatura por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "faturamento_fatura",
+      "domain": "faturamento"
+    },
+    {
+      "name": "incluir_fatura",
+      "description": "Inclui (cadastra) um(a) novo(a) fatura.",
+      "parameters": [
+        {
+          "name": "codigo_cliente",
+          "type": "string",
+          "description": "Campo 'codigo_cliente' do(a) fatura.",
+          "required": true
+        },
+        {
+          "name": "valor",
+          "type": "string",
+          "description": "Campo 'valor' do(a) fatura.",
+          "required": true
+        },
+        {
+          "name": "vencimento",
+          "type": "string",
+          "description": "Campo 'vencimento' do(a) fatura.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "faturamento_fatura",
+      "domain": "faturamento"
+    },
+    {
+      "name": "alterar_fatura",
+      "description": "Altera os dados de um(a) fatura existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) fatura.",
+          "required": true
+        },
+        {
+          "name": "codigo_cliente",
+          "type": "string",
+          "description": "Campo 'codigo_cliente' do(a) fatura.",
+          "required": false
+        },
+        {
+          "name": "valor",
+          "type": "string",
+          "description": "Campo 'valor' do(a) fatura.",
+          "required": false
+        },
+        {
+          "name": "vencimento",
+          "type": "string",
+          "description": "Campo 'vencimento' do(a) fatura.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_fatura"
+      ],
+      "namespace": "faturamento_fatura",
+      "domain": "faturamento"
+    },
+    {
+      "name": "enviar_fatura_por_email",
+      "description": "Envia a fatura em PDF por e-mail para o cliente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) fatura.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_fatura"
+      ],
+      "namespace": "faturamento_fatura",
+      "domain": "faturamento"
+    },
+    {
+      "name": "consultar_boleto",
+      "description": "Consulta os dados de um(a) boleto bancário pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) boleto bancário.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "faturamento_boleto",
+      "domain": "faturamento"
+    },
+    {
+      "name": "pesquisar_boleto",
+      "description": "Pesquisa e lista boleto bancário por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "faturamento_boleto",
+      "domain": "faturamento"
+    },
+    {
+      "name": "incluir_boleto",
+      "description": "Inclui (cadastra) um(a) novo(a) boleto bancário.",
+      "parameters": [
+        {
+          "name": "codigo_titulo",
+          "type": "string",
+          "description": "Campo 'codigo_titulo' do(a) boleto bancário.",
+          "required": true
+        },
+        {
+          "name": "banco",
+          "type": "string",
+          "description": "Campo 'banco' do(a) boleto bancário.",
+          "required": true
+        },
+        {
+          "name": "vencimento",
+          "type": "string",
+          "description": "Campo 'vencimento' do(a) boleto bancário.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_titulo_receber"
+      ],
+      "namespace": "faturamento_boleto",
+      "domain": "faturamento"
+    },
+    {
+      "name": "alterar_boleto",
+      "description": "Altera os dados de um(a) boleto bancário existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) boleto bancário.",
+          "required": true
+        },
+        {
+          "name": "codigo_titulo",
+          "type": "string",
+          "description": "Campo 'codigo_titulo' do(a) boleto bancário.",
+          "required": false
+        },
+        {
+          "name": "banco",
+          "type": "string",
+          "description": "Campo 'banco' do(a) boleto bancário.",
+          "required": false
+        },
+        {
+          "name": "vencimento",
+          "type": "string",
+          "description": "Campo 'vencimento' do(a) boleto bancário.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_boleto"
+      ],
+      "namespace": "faturamento_boleto",
+      "domain": "faturamento"
+    },
+    {
+      "name": "registrar_boleto_banco",
+      "description": "Registra o boleto no banco (registro online) e retorna a linha digitável.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) boleto bancário.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_conta_bancaria"
+      ],
+      "namespace": "faturamento_boleto",
+      "domain": "faturamento"
+    },
+    {
+      "name": "consultar_devolucao",
+      "description": "Consulta os dados de um(a) devolução de venda pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) devolução de venda.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "faturamento_devolucao",
+      "domain": "faturamento"
+    },
+    {
+      "name": "pesquisar_devolucao",
+      "description": "Pesquisa e lista devolução de venda por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "faturamento_devolucao",
+      "domain": "faturamento"
+    },
+    {
+      "name": "incluir_devolucao",
+      "description": "Inclui (cadastra) um(a) novo(a) devolução de venda.",
+      "parameters": [
+        {
+          "name": "codigo_nota_fiscal",
+          "type": "string",
+          "description": "Campo 'codigo_nota_fiscal' do(a) devolução de venda.",
+          "required": true
+        },
+        {
+          "name": "itens",
+          "type": "string",
+          "description": "Campo 'itens' do(a) devolução de venda.",
+          "required": true
+        },
+        {
+          "name": "motivo",
+          "type": "string",
+          "description": "Campo 'motivo' do(a) devolução de venda.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "faturamento_devolucao",
+      "domain": "faturamento"
+    },
+    {
+      "name": "alterar_devolucao",
+      "description": "Altera os dados de um(a) devolução de venda existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) devolução de venda.",
+          "required": true
+        },
+        {
+          "name": "codigo_nota_fiscal",
+          "type": "string",
+          "description": "Campo 'codigo_nota_fiscal' do(a) devolução de venda.",
+          "required": false
+        },
+        {
+          "name": "itens",
+          "type": "string",
+          "description": "Campo 'itens' do(a) devolução de venda.",
+          "required": false
+        },
+        {
+          "name": "motivo",
+          "type": "string",
+          "description": "Campo 'motivo' do(a) devolução de venda.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_devolucao"
+      ],
+      "namespace": "faturamento_devolucao",
+      "domain": "faturamento"
+    },
+    {
+      "name": "processar_devolucao",
+      "description": "Processa a devolução: gera nota de entrada, estorna estoque e financeiro.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) devolução de venda.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_nota_fiscal"
+      ],
+      "namespace": "faturamento_devolucao",
+      "domain": "faturamento"
+    },
+    {
+      "name": "consultar_remessa_cobranca",
+      "description": "Consulta os dados de um(a) remessa de cobrança pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) remessa de cobrança.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "faturamento_remessa_cobranca",
+      "domain": "faturamento"
+    },
+    {
+      "name": "pesquisar_remessa_cobranca",
+      "description": "Pesquisa e lista remessa de cobrança por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "faturamento_remessa_cobranca",
+      "domain": "faturamento"
+    },
+    {
+      "name": "incluir_remessa_cobranca",
+      "description": "Inclui (cadastra) um(a) novo(a) remessa de cobrança.",
+      "parameters": [
+        {
+          "name": "banco",
+          "type": "string",
+          "description": "Campo 'banco' do(a) remessa de cobrança.",
+          "required": true
+        },
+        {
+          "name": "data_geracao",
+          "type": "string",
+          "description": "Campo 'data_geracao' do(a) remessa de cobrança.",
+          "required": true
+        },
+        {
+          "name": "titulos",
+          "type": "string",
+          "description": "Campo 'titulos' do(a) remessa de cobrança.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "faturamento_remessa_cobranca",
+      "domain": "faturamento"
+    },
+    {
+      "name": "alterar_remessa_cobranca",
+      "description": "Altera os dados de um(a) remessa de cobrança existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) remessa de cobrança.",
+          "required": true
+        },
+        {
+          "name": "banco",
+          "type": "string",
+          "description": "Campo 'banco' do(a) remessa de cobrança.",
+          "required": false
+        },
+        {
+          "name": "data_geracao",
+          "type": "string",
+          "description": "Campo 'data_geracao' do(a) remessa de cobrança.",
+          "required": false
+        },
+        {
+          "name": "titulos",
+          "type": "string",
+          "description": "Campo 'titulos' do(a) remessa de cobrança.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_remessa_cobranca"
+      ],
+      "namespace": "faturamento_remessa_cobranca",
+      "domain": "faturamento"
+    },
+    {
+      "name": "gerar_arquivo_remessa_cobranca",
+      "description": "Gera o arquivo CNAB de remessa de cobrança para o banco.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) remessa de cobrança.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "pesquisar_boleto"
+      ],
+      "namespace": "faturamento_remessa_cobranca",
+      "domain": "faturamento"
+    },
+    {
+      "name": "consultar_produto",
+      "description": "Consulta os dados de um(a) produto pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) produto.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "estoque_produto",
+      "domain": "estoque"
+    },
+    {
+      "name": "pesquisar_produto",
+      "description": "Pesquisa e lista produto por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "estoque_produto",
+      "domain": "estoque"
+    },
+    {
+      "name": "incluir_produto",
+      "description": "Inclui (cadastra) um(a) novo(a) produto.",
+      "parameters": [
+        {
+          "name": "descricao",
+          "type": "string",
+          "description": "Campo 'descricao' do(a) produto.",
+          "required": true
+        },
+        {
+          "name": "unidade",
+          "type": "string",
+          "description": "Campo 'unidade' do(a) produto.",
+          "required": true
+        },
+        {
+          "name": "ncm",
+          "type": "string",
+          "description": "Campo 'ncm' do(a) produto.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "estoque_produto",
+      "domain": "estoque"
+    },
+    {
+      "name": "alterar_produto",
+      "description": "Altera os dados de um(a) produto existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) produto.",
+          "required": true
+        },
+        {
+          "name": "descricao",
+          "type": "string",
+          "description": "Campo 'descricao' do(a) produto.",
+          "required": false
+        },
+        {
+          "name": "unidade",
+          "type": "string",
+          "description": "Campo 'unidade' do(a) produto.",
+          "required": false
+        },
+        {
+          "name": "ncm",
+          "type": "string",
+          "description": "Campo 'ncm' do(a) produto.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_produto"
+      ],
+      "namespace": "estoque_produto",
+      "domain": "estoque"
+    },
+    {
+      "name": "calcular_custo_produto",
+      "description": "Calcula o custo médio do produto a partir das entradas e saídas.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) produto.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_produto"
+      ],
+      "namespace": "estoque_produto",
+      "domain": "estoque"
+    },
+    {
+      "name": "consultar_saldo_estoque",
+      "description": "Consulta os dados de um(a) saldo de estoque pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) saldo de estoque.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "estoque_saldo_estoque",
+      "domain": "estoque"
+    },
+    {
+      "name": "pesquisar_saldo_estoque",
+      "description": "Pesquisa e lista saldo de estoque por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "estoque_saldo_estoque",
+      "domain": "estoque"
+    },
+    {
+      "name": "incluir_saldo_estoque",
+      "description": "Inclui (cadastra) um(a) novo(a) saldo de estoque.",
+      "parameters": [
+        {
+          "name": "codigo_produto",
+          "type": "string",
+          "description": "Campo 'codigo_produto' do(a) saldo de estoque.",
+          "required": true
+        },
+        {
+          "name": "armazem",
+          "type": "string",
+          "description": "Campo 'armazem' do(a) saldo de estoque.",
+          "required": true
+        },
+        {
+          "name": "quantidade",
+          "type": "string",
+          "description": "Campo 'quantidade' do(a) saldo de estoque.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "estoque_saldo_estoque",
+      "domain": "estoque"
+    },
+    {
+      "name": "alterar_saldo_estoque",
+      "description": "Altera os dados de um(a) saldo de estoque existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) saldo de estoque.",
+          "required": true
+        },
+        {
+          "name": "codigo_produto",
+          "type": "string",
+          "description": "Campo 'codigo_produto' do(a) saldo de estoque.",
+          "required": false
+        },
+        {
+          "name": "armazem",
+          "type": "string",
+          "description": "Campo 'armazem' do(a) saldo de estoque.",
+          "required": false
+        },
+        {
+          "name": "quantidade",
+          "type": "string",
+          "description": "Campo 'quantidade' do(a) saldo de estoque.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_saldo_estoque"
+      ],
+      "namespace": "estoque_saldo_estoque",
+      "domain": "estoque"
+    },
+    {
+      "name": "reservar_saldo_estoque",
+      "description": "Reserva quantidade de estoque de um produto para um pedido.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) saldo de estoque.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_produto"
+      ],
+      "namespace": "estoque_saldo_estoque",
+      "domain": "estoque"
+    },
+    {
+      "name": "consultar_lote",
+      "description": "Consulta os dados de um(a) lote de produto pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) lote de produto.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "estoque_lote",
+      "domain": "estoque"
+    },
+    {
+      "name": "pesquisar_lote",
+      "description": "Pesquisa e lista lote de produto por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "estoque_lote",
+      "domain": "estoque"
+    },
+    {
+      "name": "incluir_lote",
+      "description": "Inclui (cadastra) um(a) novo(a) lote de produto.",
+      "parameters": [
+        {
+          "name": "codigo_produto",
+          "type": "string",
+          "description": "Campo 'codigo_produto' do(a) lote de produto.",
+          "required": true
+        },
+        {
+          "name": "validade",
+          "type": "string",
+          "description": "Campo 'validade' do(a) lote de produto.",
+          "required": true
+        },
+        {
+          "name": "quantidade",
+          "type": "string",
+          "description": "Campo 'quantidade' do(a) lote de produto.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "estoque_lote",
+      "domain": "estoque"
+    },
+    {
+      "name": "alterar_lote",
+      "description": "Altera os dados de um(a) lote de produto existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) lote de produto.",
+          "required": true
+        },
+        {
+          "name": "codigo_produto",
+          "type": "string",
+          "description": "Campo 'codigo_produto' do(a) lote de produto.",
+          "required": false
+        },
+        {
+          "name": "validade",
+          "type": "string",
+          "description": "Campo 'validade' do(a) lote de produto.",
+          "required": false
+        },
+        {
+          "name": "quantidade",
+          "type": "string",
+          "description": "Campo 'quantidade' do(a) lote de produto.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_lote"
+      ],
+      "namespace": "estoque_lote",
+      "domain": "estoque"
+    },
+    {
+      "name": "bloquear_lote",
+      "description": "Bloqueia um lote para movimentação (ex.: problema de qualidade).",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) lote de produto.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_lote"
+      ],
+      "namespace": "estoque_lote",
+      "domain": "estoque"
+    },
+    {
+      "name": "consultar_inventario",
+      "description": "Consulta os dados de um(a) inventário pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) inventário.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "estoque_inventario",
+      "domain": "estoque"
+    },
+    {
+      "name": "pesquisar_inventario",
+      "description": "Pesquisa e lista inventário por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "estoque_inventario",
+      "domain": "estoque"
+    },
+    {
+      "name": "incluir_inventario",
+      "description": "Inclui (cadastra) um(a) novo(a) inventário.",
+      "parameters": [
+        {
+          "name": "armazem",
+          "type": "string",
+          "description": "Campo 'armazem' do(a) inventário.",
+          "required": true
+        },
+        {
+          "name": "data_contagem",
+          "type": "string",
+          "description": "Campo 'data_contagem' do(a) inventário.",
+          "required": true
+        },
+        {
+          "name": "contador",
+          "type": "string",
+          "description": "Campo 'contador' do(a) inventário.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "estoque_inventario",
+      "domain": "estoque"
+    },
+    {
+      "name": "alterar_inventario",
+      "description": "Altera os dados de um(a) inventário existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) inventário.",
+          "required": true
+        },
+        {
+          "name": "armazem",
+          "type": "string",
+          "description": "Campo 'armazem' do(a) inventário.",
+          "required": false
+        },
+        {
+          "name": "data_contagem",
+          "type": "string",
+          "description": "Campo 'data_contagem' do(a) inventário.",
+          "required": false
+        },
+        {
+          "name": "contador",
+          "type": "string",
+          "description": "Campo 'contador' do(a) inventário.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_inventario"
+      ],
+      "namespace": "estoque_inventario",
+      "domain": "estoque"
+    },
+    {
+      "name": "encerrar_inventario",
+      "description": "Encerra o inventário e ajusta o saldo de estoque pelas contagens.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) inventário.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "pesquisar_saldo_estoque"
+      ],
+      "namespace": "estoque_inventario",
+      "domain": "estoque"
+    },
+    {
+      "name": "consultar_transferencia",
+      "description": "Consulta os dados de um(a) transferência entre armazéns pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) transferência entre armazéns.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "estoque_transferencia",
+      "domain": "estoque"
+    },
+    {
+      "name": "pesquisar_transferencia",
+      "description": "Pesquisa e lista transferência entre armazéns por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "estoque_transferencia",
+      "domain": "estoque"
+    },
+    {
+      "name": "incluir_transferencia",
+      "description": "Inclui (cadastra) um(a) novo(a) transferência entre armazéns.",
+      "parameters": [
+        {
+          "name": "codigo_produto",
+          "type": "string",
+          "description": "Campo 'codigo_produto' do(a) transferência entre armazéns.",
+          "required": true
+        },
+        {
+          "name": "armazem_origem",
+          "type": "string",
+          "description": "Campo 'armazem_origem' do(a) transferência entre armazéns.",
+          "required": true
+        },
+        {
+          "name": "armazem_destino",
+          "type": "string",
+          "description": "Campo 'armazem_destino' do(a) transferência entre armazéns.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "estoque_transferencia",
+      "domain": "estoque"
+    },
+    {
+      "name": "alterar_transferencia",
+      "description": "Altera os dados de um(a) transferência entre armazéns existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) transferência entre armazéns.",
+          "required": true
+        },
+        {
+          "name": "codigo_produto",
+          "type": "string",
+          "description": "Campo 'codigo_produto' do(a) transferência entre armazéns.",
+          "required": false
+        },
+        {
+          "name": "armazem_origem",
+          "type": "string",
+          "description": "Campo 'armazem_origem' do(a) transferência entre armazéns.",
+          "required": false
+        },
+        {
+          "name": "armazem_destino",
+          "type": "string",
+          "description": "Campo 'armazem_destino' do(a) transferência entre armazéns.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_transferencia"
+      ],
+      "namespace": "estoque_transferencia",
+      "domain": "estoque"
+    },
+    {
+      "name": "efetivar_transferencia",
+      "description": "Efetiva a transferência de estoque entre armazéns ou filiais.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) transferência entre armazéns.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "reservar_saldo_estoque"
+      ],
+      "namespace": "estoque_transferencia",
+      "domain": "estoque"
+    },
+    {
+      "name": "consultar_fornecedor",
+      "description": "Consulta os dados de um(a) fornecedor pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) fornecedor.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "compras_fornecedor",
+      "domain": "compras"
+    },
+    {
+      "name": "pesquisar_fornecedor",
+      "description": "Pesquisa e lista fornecedor por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "compras_fornecedor",
+      "domain": "compras"
+    },
+    {
+      "name": "incluir_fornecedor",
+      "description": "Inclui (cadastra) um(a) novo(a) fornecedor.",
+      "parameters": [
+        {
+          "name": "razao_social",
+          "type": "string",
+          "description": "Campo 'razao_social' do(a) fornecedor.",
+          "required": true
+        },
+        {
+          "name": "cnpj",
+          "type": "string",
+          "description": "Campo 'cnpj' do(a) fornecedor.",
+          "required": true
+        },
+        {
+          "name": "categoria",
+          "type": "string",
+          "description": "Campo 'categoria' do(a) fornecedor.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "compras_fornecedor",
+      "domain": "compras"
+    },
+    {
+      "name": "alterar_fornecedor",
+      "description": "Altera os dados de um(a) fornecedor existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) fornecedor.",
+          "required": true
+        },
+        {
+          "name": "razao_social",
+          "type": "string",
+          "description": "Campo 'razao_social' do(a) fornecedor.",
+          "required": false
+        },
+        {
+          "name": "cnpj",
+          "type": "string",
+          "description": "Campo 'cnpj' do(a) fornecedor.",
+          "required": false
+        },
+        {
+          "name": "categoria",
+          "type": "string",
+          "description": "Campo 'categoria' do(a) fornecedor.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_fornecedor"
+      ],
+      "namespace": "compras_fornecedor",
+      "domain": "compras"
+    },
+    {
+      "name": "homologar_fornecedor",
+      "description": "Homologa um fornecedor após análise documental e de qualidade.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) fornecedor.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_fornecedor"
+      ],
+      "namespace": "compras_fornecedor",
+      "domain": "compras"
+    },
+    {
+      "name": "consultar_pedido_compra",
+      "description": "Consulta os dados de um(a) pedido de compra pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) pedido de compra.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "compras_pedido_compra",
+      "domain": "compras"
+    },
+    {
+      "name": "pesquisar_pedido_compra",
+      "description": "Pesquisa e lista pedido de compra por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "compras_pedido_compra",
+      "domain": "compras"
+    },
+    {
+      "name": "incluir_pedido_compra",
+      "description": "Inclui (cadastra) um(a) novo(a) pedido de compra.",
+      "parameters": [
+        {
+          "name": "codigo_fornecedor",
+          "type": "string",
+          "description": "Campo 'codigo_fornecedor' do(a) pedido de compra.",
+          "required": true
+        },
+        {
+          "name": "itens",
+          "type": "string",
+          "description": "Campo 'itens' do(a) pedido de compra.",
+          "required": true
+        },
+        {
+          "name": "entrega_prevista",
+          "type": "string",
+          "description": "Campo 'entrega_prevista' do(a) pedido de compra.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_fornecedor",
+        "consultar_produto"
+      ],
+      "namespace": "compras_pedido_compra",
+      "domain": "compras"
+    },
+    {
+      "name": "alterar_pedido_compra",
+      "description": "Altera os dados de um(a) pedido de compra existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) pedido de compra.",
+          "required": true
+        },
+        {
+          "name": "codigo_fornecedor",
+          "type": "string",
+          "description": "Campo 'codigo_fornecedor' do(a) pedido de compra.",
+          "required": false
+        },
+        {
+          "name": "itens",
+          "type": "string",
+          "description": "Campo 'itens' do(a) pedido de compra.",
+          "required": false
+        },
+        {
+          "name": "entrega_prevista",
+          "type": "string",
+          "description": "Campo 'entrega_prevista' do(a) pedido de compra.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_pedido_compra"
+      ],
+      "namespace": "compras_pedido_compra",
+      "domain": "compras"
+    },
+    {
+      "name": "aprovar_pedido_compra",
+      "description": "Aprova o pedido de compra conforme a alçada do aprovador.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) pedido de compra.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "analisar_cotacao"
+      ],
+      "namespace": "compras_pedido_compra",
+      "domain": "compras"
+    },
+    {
+      "name": "consultar_cotacao",
+      "description": "Consulta os dados de um(a) cotação de compra pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) cotação de compra.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "compras_cotacao",
+      "domain": "compras"
+    },
+    {
+      "name": "pesquisar_cotacao",
+      "description": "Pesquisa e lista cotação de compra por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "compras_cotacao",
+      "domain": "compras"
+    },
+    {
+      "name": "incluir_cotacao",
+      "description": "Inclui (cadastra) um(a) novo(a) cotação de compra.",
+      "parameters": [
+        {
+          "name": "codigo_solicitacao",
+          "type": "string",
+          "description": "Campo 'codigo_solicitacao' do(a) cotação de compra.",
+          "required": true
+        },
+        {
+          "name": "fornecedores",
+          "type": "string",
+          "description": "Campo 'fornecedores' do(a) cotação de compra.",
+          "required": true
+        },
+        {
+          "name": "prazo_resposta",
+          "type": "string",
+          "description": "Campo 'prazo_resposta' do(a) cotação de compra.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "compras_cotacao",
+      "domain": "compras"
+    },
+    {
+      "name": "alterar_cotacao",
+      "description": "Altera os dados de um(a) cotação de compra existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) cotação de compra.",
+          "required": true
+        },
+        {
+          "name": "codigo_solicitacao",
+          "type": "string",
+          "description": "Campo 'codigo_solicitacao' do(a) cotação de compra.",
+          "required": false
+        },
+        {
+          "name": "fornecedores",
+          "type": "string",
+          "description": "Campo 'fornecedores' do(a) cotação de compra.",
+          "required": false
+        },
+        {
+          "name": "prazo_resposta",
+          "type": "string",
+          "description": "Campo 'prazo_resposta' do(a) cotação de compra.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_cotacao"
+      ],
+      "namespace": "compras_cotacao",
+      "domain": "compras"
+    },
+    {
+      "name": "analisar_cotacao",
+      "description": "Analisa as propostas da cotação e indica o fornecedor vencedor.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) cotação de compra.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_solicitacao_compra"
+      ],
+      "namespace": "compras_cotacao",
+      "domain": "compras"
+    },
+    {
+      "name": "consultar_solicitacao_compra",
+      "description": "Consulta os dados de um(a) solicitação de compra pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) solicitação de compra.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "compras_solicitacao_compra",
+      "domain": "compras"
+    },
+    {
+      "name": "pesquisar_solicitacao_compra",
+      "description": "Pesquisa e lista solicitação de compra por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "compras_solicitacao_compra",
+      "domain": "compras"
+    },
+    {
+      "name": "incluir_solicitacao_compra",
+      "description": "Inclui (cadastra) um(a) novo(a) solicitação de compra.",
+      "parameters": [
+        {
+          "name": "codigo_produto",
+          "type": "string",
+          "description": "Campo 'codigo_produto' do(a) solicitação de compra.",
+          "required": true
+        },
+        {
+          "name": "quantidade",
+          "type": "string",
+          "description": "Campo 'quantidade' do(a) solicitação de compra.",
+          "required": true
+        },
+        {
+          "name": "centro_custo",
+          "type": "string",
+          "description": "Campo 'centro_custo' do(a) solicitação de compra.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "compras_solicitacao_compra",
+      "domain": "compras"
+    },
+    {
+      "name": "alterar_solicitacao_compra",
+      "description": "Altera os dados de um(a) solicitação de compra existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) solicitação de compra.",
+          "required": true
+        },
+        {
+          "name": "codigo_produto",
+          "type": "string",
+          "description": "Campo 'codigo_produto' do(a) solicitação de compra.",
+          "required": false
+        },
+        {
+          "name": "quantidade",
+          "type": "string",
+          "description": "Campo 'quantidade' do(a) solicitação de compra.",
+          "required": false
+        },
+        {
+          "name": "centro_custo",
+          "type": "string",
+          "description": "Campo 'centro_custo' do(a) solicitação de compra.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_solicitacao_compra"
+      ],
+      "namespace": "compras_solicitacao_compra",
+      "domain": "compras"
+    },
+    {
+      "name": "aprovar_solicitacao_compra",
+      "description": "Aprova a solicitação de compra de um departamento.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) solicitação de compra.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_solicitacao_compra"
+      ],
+      "namespace": "compras_solicitacao_compra",
+      "domain": "compras"
+    },
+    {
+      "name": "consultar_contrato_fornecimento",
+      "description": "Consulta os dados de um(a) contrato de fornecimento pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) contrato de fornecimento.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "compras_contrato_fornecimento",
+      "domain": "compras"
+    },
+    {
+      "name": "pesquisar_contrato_fornecimento",
+      "description": "Pesquisa e lista contrato de fornecimento por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "compras_contrato_fornecimento",
+      "domain": "compras"
+    },
+    {
+      "name": "incluir_contrato_fornecimento",
+      "description": "Inclui (cadastra) um(a) novo(a) contrato de fornecimento.",
+      "parameters": [
+        {
+          "name": "codigo_fornecedor",
+          "type": "string",
+          "description": "Campo 'codigo_fornecedor' do(a) contrato de fornecimento.",
+          "required": true
+        },
+        {
+          "name": "vigencia",
+          "type": "string",
+          "description": "Campo 'vigencia' do(a) contrato de fornecimento.",
+          "required": true
+        },
+        {
+          "name": "valor",
+          "type": "string",
+          "description": "Campo 'valor' do(a) contrato de fornecimento.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "compras_contrato_fornecimento",
+      "domain": "compras"
+    },
+    {
+      "name": "alterar_contrato_fornecimento",
+      "description": "Altera os dados de um(a) contrato de fornecimento existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) contrato de fornecimento.",
+          "required": true
+        },
+        {
+          "name": "codigo_fornecedor",
+          "type": "string",
+          "description": "Campo 'codigo_fornecedor' do(a) contrato de fornecimento.",
+          "required": false
+        },
+        {
+          "name": "vigencia",
+          "type": "string",
+          "description": "Campo 'vigencia' do(a) contrato de fornecimento.",
+          "required": false
+        },
+        {
+          "name": "valor",
+          "type": "string",
+          "description": "Campo 'valor' do(a) contrato de fornecimento.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_contrato_fornecimento"
+      ],
+      "namespace": "compras_contrato_fornecimento",
+      "domain": "compras"
+    },
+    {
+      "name": "renovar_contrato_fornecimento",
+      "description": "Renova um contrato de fornecimento por mais um período.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) contrato de fornecimento.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_contrato_fornecimento"
+      ],
+      "namespace": "compras_contrato_fornecimento",
+      "domain": "compras"
+    },
+    {
+      "name": "consultar_titulo_receber",
+      "description": "Consulta os dados de um(a) título a receber pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) título a receber.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "financeiro_titulo_receber",
+      "domain": "financeiro"
+    },
+    {
+      "name": "pesquisar_titulo_receber",
+      "description": "Pesquisa e lista título a receber por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "financeiro_titulo_receber",
+      "domain": "financeiro"
+    },
+    {
+      "name": "incluir_titulo_receber",
+      "description": "Inclui (cadastra) um(a) novo(a) título a receber.",
+      "parameters": [
+        {
+          "name": "codigo_cliente",
+          "type": "string",
+          "description": "Campo 'codigo_cliente' do(a) título a receber.",
+          "required": true
+        },
+        {
+          "name": "valor",
+          "type": "string",
+          "description": "Campo 'valor' do(a) título a receber.",
+          "required": true
+        },
+        {
+          "name": "vencimento",
+          "type": "string",
+          "description": "Campo 'vencimento' do(a) título a receber.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_nota_fiscal"
+      ],
+      "namespace": "financeiro_titulo_receber",
+      "domain": "financeiro"
+    },
+    {
+      "name": "alterar_titulo_receber",
+      "description": "Altera os dados de um(a) título a receber existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) título a receber.",
+          "required": true
+        },
+        {
+          "name": "codigo_cliente",
+          "type": "string",
+          "description": "Campo 'codigo_cliente' do(a) título a receber.",
+          "required": false
+        },
+        {
+          "name": "valor",
+          "type": "string",
+          "description": "Campo 'valor' do(a) título a receber.",
+          "required": false
+        },
+        {
+          "name": "vencimento",
+          "type": "string",
+          "description": "Campo 'vencimento' do(a) título a receber.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_titulo_receber"
+      ],
+      "namespace": "financeiro_titulo_receber",
+      "domain": "financeiro"
+    },
+    {
+      "name": "baixar_titulo_receber",
+      "description": "Baixa (liquida) um título a receber registrando o recebimento.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) título a receber.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_conta_bancaria"
+      ],
+      "namespace": "financeiro_titulo_receber",
+      "domain": "financeiro"
+    },
+    {
+      "name": "consultar_titulo_pagar",
+      "description": "Consulta os dados de um(a) título a pagar pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) título a pagar.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "financeiro_titulo_pagar",
+      "domain": "financeiro"
+    },
+    {
+      "name": "pesquisar_titulo_pagar",
+      "description": "Pesquisa e lista título a pagar por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "financeiro_titulo_pagar",
+      "domain": "financeiro"
+    },
+    {
+      "name": "incluir_titulo_pagar",
+      "description": "Inclui (cadastra) um(a) novo(a) título a pagar.",
+      "parameters": [
+        {
+          "name": "codigo_fornecedor",
+          "type": "string",
+          "description": "Campo 'codigo_fornecedor' do(a) título a pagar.",
+          "required": true
+        },
+        {
+          "name": "valor",
+          "type": "string",
+          "description": "Campo 'valor' do(a) título a pagar.",
+          "required": true
+        },
+        {
+          "name": "vencimento",
+          "type": "string",
+          "description": "Campo 'vencimento' do(a) título a pagar.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "financeiro_titulo_pagar",
+      "domain": "financeiro"
+    },
+    {
+      "name": "alterar_titulo_pagar",
+      "description": "Altera os dados de um(a) título a pagar existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) título a pagar.",
+          "required": true
+        },
+        {
+          "name": "codigo_fornecedor",
+          "type": "string",
+          "description": "Campo 'codigo_fornecedor' do(a) título a pagar.",
+          "required": false
+        },
+        {
+          "name": "valor",
+          "type": "string",
+          "description": "Campo 'valor' do(a) título a pagar.",
+          "required": false
+        },
+        {
+          "name": "vencimento",
+          "type": "string",
+          "description": "Campo 'vencimento' do(a) título a pagar.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_titulo_pagar"
+      ],
+      "namespace": "financeiro_titulo_pagar",
+      "domain": "financeiro"
+    },
+    {
+      "name": "efetuar_pagamento_titulo_pagar",
+      "description": "Efetua o pagamento de um título a pagar a partir de uma conta bancária.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) título a pagar.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_conta_bancaria",
+        "projetar_fluxo_caixa"
+      ],
+      "namespace": "financeiro_titulo_pagar",
+      "domain": "financeiro"
+    },
+    {
+      "name": "consultar_conta_bancaria",
+      "description": "Consulta os dados de um(a) conta bancária pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) conta bancária.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "financeiro_conta_bancaria",
+      "domain": "financeiro"
+    },
+    {
+      "name": "pesquisar_conta_bancaria",
+      "description": "Pesquisa e lista conta bancária por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "financeiro_conta_bancaria",
+      "domain": "financeiro"
+    },
+    {
+      "name": "incluir_conta_bancaria",
+      "description": "Inclui (cadastra) um(a) novo(a) conta bancária.",
+      "parameters": [
+        {
+          "name": "banco",
+          "type": "string",
+          "description": "Campo 'banco' do(a) conta bancária.",
+          "required": true
+        },
+        {
+          "name": "agencia",
+          "type": "string",
+          "description": "Campo 'agencia' do(a) conta bancária.",
+          "required": true
+        },
+        {
+          "name": "numero_conta",
+          "type": "string",
+          "description": "Campo 'numero_conta' do(a) conta bancária.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "financeiro_conta_bancaria",
+      "domain": "financeiro"
+    },
+    {
+      "name": "alterar_conta_bancaria",
+      "description": "Altera os dados de um(a) conta bancária existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) conta bancária.",
+          "required": true
+        },
+        {
+          "name": "banco",
+          "type": "string",
+          "description": "Campo 'banco' do(a) conta bancária.",
+          "required": false
+        },
+        {
+          "name": "agencia",
+          "type": "string",
+          "description": "Campo 'agencia' do(a) conta bancária.",
+          "required": false
+        },
+        {
+          "name": "numero_conta",
+          "type": "string",
+          "description": "Campo 'numero_conta' do(a) conta bancária.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_conta_bancaria"
+      ],
+      "namespace": "financeiro_conta_bancaria",
+      "domain": "financeiro"
+    },
+    {
+      "name": "importar_extrato_bancario",
+      "description": "Importa o extrato bancário (OFX/CNAB) de uma conta.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) conta bancária.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "financeiro_conta_bancaria",
+      "domain": "financeiro"
+    },
+    {
+      "name": "consultar_fluxo_caixa",
+      "description": "Consulta os dados de um(a) fluxo de caixa pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) fluxo de caixa.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "financeiro_fluxo_caixa",
+      "domain": "financeiro"
+    },
+    {
+      "name": "pesquisar_fluxo_caixa",
+      "description": "Pesquisa e lista fluxo de caixa por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "financeiro_fluxo_caixa",
+      "domain": "financeiro"
+    },
+    {
+      "name": "incluir_fluxo_caixa",
+      "description": "Inclui (cadastra) um(a) novo(a) fluxo de caixa.",
+      "parameters": [
+        {
+          "name": "data_inicial",
+          "type": "string",
+          "description": "Campo 'data_inicial' do(a) fluxo de caixa.",
+          "required": true
+        },
+        {
+          "name": "data_final",
+          "type": "string",
+          "description": "Campo 'data_final' do(a) fluxo de caixa.",
+          "required": true
+        },
+        {
+          "name": "moeda",
+          "type": "string",
+          "description": "Campo 'moeda' do(a) fluxo de caixa.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "financeiro_fluxo_caixa",
+      "domain": "financeiro"
+    },
+    {
+      "name": "alterar_fluxo_caixa",
+      "description": "Altera os dados de um(a) fluxo de caixa existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) fluxo de caixa.",
+          "required": true
+        },
+        {
+          "name": "data_inicial",
+          "type": "string",
+          "description": "Campo 'data_inicial' do(a) fluxo de caixa.",
+          "required": false
+        },
+        {
+          "name": "data_final",
+          "type": "string",
+          "description": "Campo 'data_final' do(a) fluxo de caixa.",
+          "required": false
+        },
+        {
+          "name": "moeda",
+          "type": "string",
+          "description": "Campo 'moeda' do(a) fluxo de caixa.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_fluxo_caixa"
+      ],
+      "namespace": "financeiro_fluxo_caixa",
+      "domain": "financeiro"
+    },
+    {
+      "name": "projetar_fluxo_caixa",
+      "description": "Projeta o fluxo de caixa futuro com base em títulos a pagar e a receber.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) fluxo de caixa.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "financeiro_fluxo_caixa",
+      "domain": "financeiro"
+    },
+    {
+      "name": "consultar_conciliacao",
+      "description": "Consulta os dados de um(a) conciliação bancária pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) conciliação bancária.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "financeiro_conciliacao",
+      "domain": "financeiro"
+    },
+    {
+      "name": "pesquisar_conciliacao",
+      "description": "Pesquisa e lista conciliação bancária por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "financeiro_conciliacao",
+      "domain": "financeiro"
+    },
+    {
+      "name": "incluir_conciliacao",
+      "description": "Inclui (cadastra) um(a) novo(a) conciliação bancária.",
+      "parameters": [
+        {
+          "name": "codigo_conta",
+          "type": "string",
+          "description": "Campo 'codigo_conta' do(a) conciliação bancária.",
+          "required": true
+        },
+        {
+          "name": "periodo",
+          "type": "string",
+          "description": "Campo 'periodo' do(a) conciliação bancária.",
+          "required": true
+        },
+        {
+          "name": "responsavel",
+          "type": "string",
+          "description": "Campo 'responsavel' do(a) conciliação bancária.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "financeiro_conciliacao",
+      "domain": "financeiro"
+    },
+    {
+      "name": "alterar_conciliacao",
+      "description": "Altera os dados de um(a) conciliação bancária existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) conciliação bancária.",
+          "required": true
+        },
+        {
+          "name": "codigo_conta",
+          "type": "string",
+          "description": "Campo 'codigo_conta' do(a) conciliação bancária.",
+          "required": false
+        },
+        {
+          "name": "periodo",
+          "type": "string",
+          "description": "Campo 'periodo' do(a) conciliação bancária.",
+          "required": false
+        },
+        {
+          "name": "responsavel",
+          "type": "string",
+          "description": "Campo 'responsavel' do(a) conciliação bancária.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_conciliacao"
+      ],
+      "namespace": "financeiro_conciliacao",
+      "domain": "financeiro"
+    },
+    {
+      "name": "conciliar_extrato_bancario",
+      "description": "Concilia os lançamentos do extrato com a movimentação financeira.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) conciliação bancária.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "importar_extrato_bancario"
+      ],
+      "namespace": "financeiro_conciliacao",
+      "domain": "financeiro"
+    },
+    {
+      "name": "consultar_imposto",
+      "description": "Consulta os dados de um(a) regra de imposto pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) regra de imposto.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "fiscal_imposto",
+      "domain": "fiscal"
+    },
+    {
+      "name": "pesquisar_imposto",
+      "description": "Pesquisa e lista regra de imposto por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "fiscal_imposto",
+      "domain": "fiscal"
+    },
+    {
+      "name": "incluir_imposto",
+      "description": "Inclui (cadastra) um(a) novo(a) regra de imposto.",
+      "parameters": [
+        {
+          "name": "tipo_imposto",
+          "type": "string",
+          "description": "Campo 'tipo_imposto' do(a) regra de imposto.",
+          "required": true
+        },
+        {
+          "name": "aliquota",
+          "type": "string",
+          "description": "Campo 'aliquota' do(a) regra de imposto.",
+          "required": true
+        },
+        {
+          "name": "uf",
+          "type": "string",
+          "description": "Campo 'uf' do(a) regra de imposto.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "fiscal_imposto",
+      "domain": "fiscal"
+    },
+    {
+      "name": "alterar_imposto",
+      "description": "Altera os dados de um(a) regra de imposto existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) regra de imposto.",
+          "required": true
+        },
+        {
+          "name": "tipo_imposto",
+          "type": "string",
+          "description": "Campo 'tipo_imposto' do(a) regra de imposto.",
+          "required": false
+        },
+        {
+          "name": "aliquota",
+          "type": "string",
+          "description": "Campo 'aliquota' do(a) regra de imposto.",
+          "required": false
+        },
+        {
+          "name": "uf",
+          "type": "string",
+          "description": "Campo 'uf' do(a) regra de imposto.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_imposto"
+      ],
+      "namespace": "fiscal_imposto",
+      "domain": "fiscal"
+    },
+    {
+      "name": "calcular_impostos_operacao",
+      "description": "Calcula ICMS, IPI, PIS e COFINS de uma operação de venda ou compra.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) regra de imposto.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "determinar_cfop_operacao",
+        "consultar_produto"
+      ],
+      "namespace": "fiscal_imposto",
+      "domain": "fiscal"
+    },
+    {
+      "name": "consultar_cfop",
+      "description": "Consulta os dados de um(a) CFOP pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) CFOP.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "fiscal_cfop",
+      "domain": "fiscal"
+    },
+    {
+      "name": "pesquisar_cfop",
+      "description": "Pesquisa e lista CFOP por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "fiscal_cfop",
+      "domain": "fiscal"
+    },
+    {
+      "name": "incluir_cfop",
+      "description": "Inclui (cadastra) um(a) novo(a) CFOP.",
+      "parameters": [
+        {
+          "name": "codigo_cfop",
+          "type": "string",
+          "description": "Campo 'codigo_cfop' do(a) CFOP.",
+          "required": true
+        },
+        {
+          "name": "descricao",
+          "type": "string",
+          "description": "Campo 'descricao' do(a) CFOP.",
+          "required": true
+        },
+        {
+          "name": "tipo_operacao",
+          "type": "string",
+          "description": "Campo 'tipo_operacao' do(a) CFOP.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "fiscal_cfop",
+      "domain": "fiscal"
+    },
+    {
+      "name": "alterar_cfop",
+      "description": "Altera os dados de um(a) CFOP existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) CFOP.",
+          "required": true
+        },
+        {
+          "name": "codigo_cfop",
+          "type": "string",
+          "description": "Campo 'codigo_cfop' do(a) CFOP.",
+          "required": false
+        },
+        {
+          "name": "descricao",
+          "type": "string",
+          "description": "Campo 'descricao' do(a) CFOP.",
+          "required": false
+        },
+        {
+          "name": "tipo_operacao",
+          "type": "string",
+          "description": "Campo 'tipo_operacao' do(a) CFOP.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_cfop"
+      ],
+      "namespace": "fiscal_cfop",
+      "domain": "fiscal"
+    },
+    {
+      "name": "determinar_cfop_operacao",
+      "description": "Determina o CFOP correto conforme UF de origem, destino e tipo de operação.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) CFOP.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "fiscal_cfop",
+      "domain": "fiscal"
+    },
+    {
+      "name": "consultar_apuracao_icms",
+      "description": "Consulta os dados de um(a) apuração de ICMS pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) apuração de ICMS.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "fiscal_apuracao_icms",
+      "domain": "fiscal"
+    },
+    {
+      "name": "pesquisar_apuracao_icms",
+      "description": "Pesquisa e lista apuração de ICMS por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "fiscal_apuracao_icms",
+      "domain": "fiscal"
+    },
+    {
+      "name": "incluir_apuracao_icms",
+      "description": "Inclui (cadastra) um(a) novo(a) apuração de ICMS.",
+      "parameters": [
+        {
+          "name": "periodo",
+          "type": "string",
+          "description": "Campo 'periodo' do(a) apuração de ICMS.",
+          "required": true
+        },
+        {
+          "name": "filial",
+          "type": "string",
+          "description": "Campo 'filial' do(a) apuração de ICMS.",
+          "required": true
+        },
+        {
+          "name": "regime",
+          "type": "string",
+          "description": "Campo 'regime' do(a) apuração de ICMS.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "fiscal_apuracao_icms",
+      "domain": "fiscal"
+    },
+    {
+      "name": "alterar_apuracao_icms",
+      "description": "Altera os dados de um(a) apuração de ICMS existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) apuração de ICMS.",
+          "required": true
+        },
+        {
+          "name": "periodo",
+          "type": "string",
+          "description": "Campo 'periodo' do(a) apuração de ICMS.",
+          "required": false
+        },
+        {
+          "name": "filial",
+          "type": "string",
+          "description": "Campo 'filial' do(a) apuração de ICMS.",
+          "required": false
+        },
+        {
+          "name": "regime",
+          "type": "string",
+          "description": "Campo 'regime' do(a) apuração de ICMS.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_apuracao_icms"
+      ],
+      "namespace": "fiscal_apuracao_icms",
+      "domain": "fiscal"
+    },
+    {
+      "name": "apurar_icms_periodo",
+      "description": "Apura o ICMS a recolher no período a partir das notas fiscais.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) apuração de ICMS.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "pesquisar_nota_fiscal"
+      ],
+      "namespace": "fiscal_apuracao_icms",
+      "domain": "fiscal"
+    },
+    {
+      "name": "consultar_sped",
+      "description": "Consulta os dados de um(a) arquivo SPED pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) arquivo SPED.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "fiscal_sped",
+      "domain": "fiscal"
+    },
+    {
+      "name": "pesquisar_sped",
+      "description": "Pesquisa e lista arquivo SPED por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "fiscal_sped",
+      "domain": "fiscal"
+    },
+    {
+      "name": "incluir_sped",
+      "description": "Inclui (cadastra) um(a) novo(a) arquivo SPED.",
+      "parameters": [
+        {
+          "name": "tipo_sped",
+          "type": "string",
+          "description": "Campo 'tipo_sped' do(a) arquivo SPED.",
+          "required": true
+        },
+        {
+          "name": "periodo",
+          "type": "string",
+          "description": "Campo 'periodo' do(a) arquivo SPED.",
+          "required": true
+        },
+        {
+          "name": "filial",
+          "type": "string",
+          "description": "Campo 'filial' do(a) arquivo SPED.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "fiscal_sped",
+      "domain": "fiscal"
+    },
+    {
+      "name": "alterar_sped",
+      "description": "Altera os dados de um(a) arquivo SPED existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) arquivo SPED.",
+          "required": true
+        },
+        {
+          "name": "tipo_sped",
+          "type": "string",
+          "description": "Campo 'tipo_sped' do(a) arquivo SPED.",
+          "required": false
+        },
+        {
+          "name": "periodo",
+          "type": "string",
+          "description": "Campo 'periodo' do(a) arquivo SPED.",
+          "required": false
+        },
+        {
+          "name": "filial",
+          "type": "string",
+          "description": "Campo 'filial' do(a) arquivo SPED.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_sped"
+      ],
+      "namespace": "fiscal_sped",
+      "domain": "fiscal"
+    },
+    {
+      "name": "gerar_arquivo_sped",
+      "description": "Gera o arquivo SPED Fiscal (EFD ICMS/IPI) do período.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) arquivo SPED.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "apurar_icms_periodo",
+        "validar_certificado_digital"
+      ],
+      "namespace": "fiscal_sped",
+      "domain": "fiscal"
+    },
+    {
+      "name": "consultar_certificado_digital",
+      "description": "Consulta os dados de um(a) certificado digital pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) certificado digital.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "fiscal_certificado_digital",
+      "domain": "fiscal"
+    },
+    {
+      "name": "pesquisar_certificado_digital",
+      "description": "Pesquisa e lista certificado digital por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "fiscal_certificado_digital",
+      "domain": "fiscal"
+    },
+    {
+      "name": "incluir_certificado_digital",
+      "description": "Inclui (cadastra) um(a) novo(a) certificado digital.",
+      "parameters": [
+        {
+          "name": "cnpj",
+          "type": "string",
+          "description": "Campo 'cnpj' do(a) certificado digital.",
+          "required": true
+        },
+        {
+          "name": "validade",
+          "type": "string",
+          "description": "Campo 'validade' do(a) certificado digital.",
+          "required": true
+        },
+        {
+          "name": "tipo",
+          "type": "string",
+          "description": "Campo 'tipo' do(a) certificado digital.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "fiscal_certificado_digital",
+      "domain": "fiscal"
+    },
+    {
+      "name": "alterar_certificado_digital",
+      "description": "Altera os dados de um(a) certificado digital existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) certificado digital.",
+          "required": true
+        },
+        {
+          "name": "cnpj",
+          "type": "string",
+          "description": "Campo 'cnpj' do(a) certificado digital.",
+          "required": false
+        },
+        {
+          "name": "validade",
+          "type": "string",
+          "description": "Campo 'validade' do(a) certificado digital.",
+          "required": false
+        },
+        {
+          "name": "tipo",
+          "type": "string",
+          "description": "Campo 'tipo' do(a) certificado digital.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_certificado_digital"
+      ],
+      "namespace": "fiscal_certificado_digital",
+      "domain": "fiscal"
+    },
+    {
+      "name": "validar_certificado_digital",
+      "description": "Valida se o certificado digital A1/A3 está vigente para transmitir documentos.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) certificado digital.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "fiscal_certificado_digital",
+      "domain": "fiscal"
+    },
+    {
+      "name": "consultar_lancamento_contabil",
+      "description": "Consulta os dados de um(a) lançamento contábil pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) lançamento contábil.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "contabilidade_lancamento_contabil",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "pesquisar_lancamento_contabil",
+      "description": "Pesquisa e lista lançamento contábil por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "contabilidade_lancamento_contabil",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "incluir_lancamento_contabil",
+      "description": "Inclui (cadastra) um(a) novo(a) lançamento contábil.",
+      "parameters": [
+        {
+          "name": "conta_debito",
+          "type": "string",
+          "description": "Campo 'conta_debito' do(a) lançamento contábil.",
+          "required": true
+        },
+        {
+          "name": "conta_credito",
+          "type": "string",
+          "description": "Campo 'conta_credito' do(a) lançamento contábil.",
+          "required": true
+        },
+        {
+          "name": "valor",
+          "type": "string",
+          "description": "Campo 'valor' do(a) lançamento contábil.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_plano_contas",
+        "consultar_centro_custo"
+      ],
+      "namespace": "contabilidade_lancamento_contabil",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "alterar_lancamento_contabil",
+      "description": "Altera os dados de um(a) lançamento contábil existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) lançamento contábil.",
+          "required": true
+        },
+        {
+          "name": "conta_debito",
+          "type": "string",
+          "description": "Campo 'conta_debito' do(a) lançamento contábil.",
+          "required": false
+        },
+        {
+          "name": "conta_credito",
+          "type": "string",
+          "description": "Campo 'conta_credito' do(a) lançamento contábil.",
+          "required": false
+        },
+        {
+          "name": "valor",
+          "type": "string",
+          "description": "Campo 'valor' do(a) lançamento contábil.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_lancamento_contabil"
+      ],
+      "namespace": "contabilidade_lancamento_contabil",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "estornar_lancamento_contabil",
+      "description": "Estorna um lançamento contábil gerando o lançamento inverso.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) lançamento contábil.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_lancamento_contabil"
+      ],
+      "namespace": "contabilidade_lancamento_contabil",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "consultar_plano_contas",
+      "description": "Consulta os dados de um(a) conta do plano de contas pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) conta do plano de contas.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "contabilidade_plano_contas",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "pesquisar_plano_contas",
+      "description": "Pesquisa e lista conta do plano de contas por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "contabilidade_plano_contas",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "incluir_plano_contas",
+      "description": "Inclui (cadastra) um(a) novo(a) conta do plano de contas.",
+      "parameters": [
+        {
+          "name": "codigo_conta",
+          "type": "string",
+          "description": "Campo 'codigo_conta' do(a) conta do plano de contas.",
+          "required": true
+        },
+        {
+          "name": "descricao",
+          "type": "string",
+          "description": "Campo 'descricao' do(a) conta do plano de contas.",
+          "required": true
+        },
+        {
+          "name": "natureza",
+          "type": "string",
+          "description": "Campo 'natureza' do(a) conta do plano de contas.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "contabilidade_plano_contas",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "alterar_plano_contas",
+      "description": "Altera os dados de um(a) conta do plano de contas existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) conta do plano de contas.",
+          "required": true
+        },
+        {
+          "name": "codigo_conta",
+          "type": "string",
+          "description": "Campo 'codigo_conta' do(a) conta do plano de contas.",
+          "required": false
+        },
+        {
+          "name": "descricao",
+          "type": "string",
+          "description": "Campo 'descricao' do(a) conta do plano de contas.",
+          "required": false
+        },
+        {
+          "name": "natureza",
+          "type": "string",
+          "description": "Campo 'natureza' do(a) conta do plano de contas.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_plano_contas"
+      ],
+      "namespace": "contabilidade_plano_contas",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "bloquear_conta_contabil",
+      "description": "Bloqueia uma conta contábil para novos lançamentos.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) conta do plano de contas.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_plano_contas"
+      ],
+      "namespace": "contabilidade_plano_contas",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "consultar_centro_custo",
+      "description": "Consulta os dados de um(a) centro de custo pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) centro de custo.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "contabilidade_centro_custo",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "pesquisar_centro_custo",
+      "description": "Pesquisa e lista centro de custo por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "contabilidade_centro_custo",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "incluir_centro_custo",
+      "description": "Inclui (cadastra) um(a) novo(a) centro de custo.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Campo 'codigo' do(a) centro de custo.",
+          "required": true
+        },
+        {
+          "name": "descricao",
+          "type": "string",
+          "description": "Campo 'descricao' do(a) centro de custo.",
+          "required": true
+        },
+        {
+          "name": "responsavel",
+          "type": "string",
+          "description": "Campo 'responsavel' do(a) centro de custo.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "contabilidade_centro_custo",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "alterar_centro_custo",
+      "description": "Altera os dados de um(a) centro de custo existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) centro de custo.",
+          "required": true
+        },
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Campo 'codigo' do(a) centro de custo.",
+          "required": false
+        },
+        {
+          "name": "descricao",
+          "type": "string",
+          "description": "Campo 'descricao' do(a) centro de custo.",
+          "required": false
+        },
+        {
+          "name": "responsavel",
+          "type": "string",
+          "description": "Campo 'responsavel' do(a) centro de custo.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_centro_custo"
+      ],
+      "namespace": "contabilidade_centro_custo",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "ratear_centro_custo",
+      "description": "Rateia despesas de um centro de custo entre outros centros.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) centro de custo.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_centro_custo"
+      ],
+      "namespace": "contabilidade_centro_custo",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "consultar_balancete",
+      "description": "Consulta os dados de um(a) balancete pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) balancete.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "contabilidade_balancete",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "pesquisar_balancete",
+      "description": "Pesquisa e lista balancete por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "contabilidade_balancete",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "incluir_balancete",
+      "description": "Inclui (cadastra) um(a) novo(a) balancete.",
+      "parameters": [
+        {
+          "name": "periodo",
+          "type": "string",
+          "description": "Campo 'periodo' do(a) balancete.",
+          "required": true
+        },
+        {
+          "name": "nivel",
+          "type": "string",
+          "description": "Campo 'nivel' do(a) balancete.",
+          "required": true
+        },
+        {
+          "name": "filial",
+          "type": "string",
+          "description": "Campo 'filial' do(a) balancete.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "contabilidade_balancete",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "alterar_balancete",
+      "description": "Altera os dados de um(a) balancete existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) balancete.",
+          "required": true
+        },
+        {
+          "name": "periodo",
+          "type": "string",
+          "description": "Campo 'periodo' do(a) balancete.",
+          "required": false
+        },
+        {
+          "name": "nivel",
+          "type": "string",
+          "description": "Campo 'nivel' do(a) balancete.",
+          "required": false
+        },
+        {
+          "name": "filial",
+          "type": "string",
+          "description": "Campo 'filial' do(a) balancete.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_balancete"
+      ],
+      "namespace": "contabilidade_balancete",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "gerar_balancete",
+      "description": "Gera o balancete de verificação do período.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) balancete.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "pesquisar_lancamento_contabil"
+      ],
+      "namespace": "contabilidade_balancete",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "consultar_fechamento_contabil",
+      "description": "Consulta os dados de um(a) fechamento contábil pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) fechamento contábil.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "contabilidade_fechamento_contabil",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "pesquisar_fechamento_contabil",
+      "description": "Pesquisa e lista fechamento contábil por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "contabilidade_fechamento_contabil",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "incluir_fechamento_contabil",
+      "description": "Inclui (cadastra) um(a) novo(a) fechamento contábil.",
+      "parameters": [
+        {
+          "name": "periodo",
+          "type": "string",
+          "description": "Campo 'periodo' do(a) fechamento contábil.",
+          "required": true
+        },
+        {
+          "name": "filial",
+          "type": "string",
+          "description": "Campo 'filial' do(a) fechamento contábil.",
+          "required": true
+        },
+        {
+          "name": "responsavel",
+          "type": "string",
+          "description": "Campo 'responsavel' do(a) fechamento contábil.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "contabilidade_fechamento_contabil",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "alterar_fechamento_contabil",
+      "description": "Altera os dados de um(a) fechamento contábil existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) fechamento contábil.",
+          "required": true
+        },
+        {
+          "name": "periodo",
+          "type": "string",
+          "description": "Campo 'periodo' do(a) fechamento contábil.",
+          "required": false
+        },
+        {
+          "name": "filial",
+          "type": "string",
+          "description": "Campo 'filial' do(a) fechamento contábil.",
+          "required": false
+        },
+        {
+          "name": "responsavel",
+          "type": "string",
+          "description": "Campo 'responsavel' do(a) fechamento contábil.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_fechamento_contabil"
+      ],
+      "namespace": "contabilidade_fechamento_contabil",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "executar_fechamento_contabil",
+      "description": "Executa o fechamento contábil do mês e bloqueia o período.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) fechamento contábil.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "gerar_balancete",
+        "conciliar_extrato_bancario"
+      ],
+      "namespace": "contabilidade_fechamento_contabil",
+      "domain": "contabilidade"
+    },
+    {
+      "name": "consultar_funcionario",
+      "description": "Consulta os dados de um(a) funcionário pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) funcionário.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "rh_funcionario",
+      "domain": "rh"
+    },
+    {
+      "name": "pesquisar_funcionario",
+      "description": "Pesquisa e lista funcionário por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "rh_funcionario",
+      "domain": "rh"
+    },
+    {
+      "name": "incluir_funcionario",
+      "description": "Inclui (cadastra) um(a) novo(a) funcionário.",
+      "parameters": [
+        {
+          "name": "nome",
+          "type": "string",
+          "description": "Campo 'nome' do(a) funcionário.",
+          "required": true
+        },
+        {
+          "name": "cpf",
+          "type": "string",
+          "description": "Campo 'cpf' do(a) funcionário.",
+          "required": true
+        },
+        {
+          "name": "cargo",
+          "type": "string",
+          "description": "Campo 'cargo' do(a) funcionário.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "rh_funcionario",
+      "domain": "rh"
+    },
+    {
+      "name": "alterar_funcionario",
+      "description": "Altera os dados de um(a) funcionário existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) funcionário.",
+          "required": true
+        },
+        {
+          "name": "nome",
+          "type": "string",
+          "description": "Campo 'nome' do(a) funcionário.",
+          "required": false
+        },
+        {
+          "name": "cpf",
+          "type": "string",
+          "description": "Campo 'cpf' do(a) funcionário.",
+          "required": false
+        },
+        {
+          "name": "cargo",
+          "type": "string",
+          "description": "Campo 'cargo' do(a) funcionário.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_funcionario"
+      ],
+      "namespace": "rh_funcionario",
+      "domain": "rh"
+    },
+    {
+      "name": "desligar_funcionario",
+      "description": "Desliga um funcionário e calcula as verbas rescisórias.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) funcionário.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_folha_pagamento"
+      ],
+      "namespace": "rh_funcionario",
+      "domain": "rh"
+    },
+    {
+      "name": "consultar_folha_pagamento",
+      "description": "Consulta os dados de um(a) folha de pagamento pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) folha de pagamento.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "rh_folha_pagamento",
+      "domain": "rh"
+    },
+    {
+      "name": "pesquisar_folha_pagamento",
+      "description": "Pesquisa e lista folha de pagamento por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "rh_folha_pagamento",
+      "domain": "rh"
+    },
+    {
+      "name": "incluir_folha_pagamento",
+      "description": "Inclui (cadastra) um(a) novo(a) folha de pagamento.",
+      "parameters": [
+        {
+          "name": "competencia",
+          "type": "string",
+          "description": "Campo 'competencia' do(a) folha de pagamento.",
+          "required": true
+        },
+        {
+          "name": "filial",
+          "type": "string",
+          "description": "Campo 'filial' do(a) folha de pagamento.",
+          "required": true
+        },
+        {
+          "name": "tipo_folha",
+          "type": "string",
+          "description": "Campo 'tipo_folha' do(a) folha de pagamento.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "rh_folha_pagamento",
+      "domain": "rh"
+    },
+    {
+      "name": "alterar_folha_pagamento",
+      "description": "Altera os dados de um(a) folha de pagamento existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) folha de pagamento.",
+          "required": true
+        },
+        {
+          "name": "competencia",
+          "type": "string",
+          "description": "Campo 'competencia' do(a) folha de pagamento.",
+          "required": false
+        },
+        {
+          "name": "filial",
+          "type": "string",
+          "description": "Campo 'filial' do(a) folha de pagamento.",
+          "required": false
+        },
+        {
+          "name": "tipo_folha",
+          "type": "string",
+          "description": "Campo 'tipo_folha' do(a) folha de pagamento.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_folha_pagamento"
+      ],
+      "namespace": "rh_folha_pagamento",
+      "domain": "rh"
+    },
+    {
+      "name": "calcular_folha_pagamento",
+      "description": "Calcula a folha de pagamento da competência (salários, descontos e encargos).",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) folha de pagamento.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "apurar_ponto",
+        "pesquisar_beneficio"
+      ],
+      "namespace": "rh_folha_pagamento",
+      "domain": "rh"
+    },
+    {
+      "name": "consultar_ferias",
+      "description": "Consulta os dados de um(a) férias pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) férias.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "rh_ferias",
+      "domain": "rh"
+    },
+    {
+      "name": "pesquisar_ferias",
+      "description": "Pesquisa e lista férias por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "rh_ferias",
+      "domain": "rh"
+    },
+    {
+      "name": "incluir_ferias",
+      "description": "Inclui (cadastra) um(a) novo(a) férias.",
+      "parameters": [
+        {
+          "name": "codigo_funcionario",
+          "type": "string",
+          "description": "Campo 'codigo_funcionario' do(a) férias.",
+          "required": true
+        },
+        {
+          "name": "data_inicio",
+          "type": "string",
+          "description": "Campo 'data_inicio' do(a) férias.",
+          "required": true
+        },
+        {
+          "name": "dias",
+          "type": "string",
+          "description": "Campo 'dias' do(a) férias.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "rh_ferias",
+      "domain": "rh"
+    },
+    {
+      "name": "alterar_ferias",
+      "description": "Altera os dados de um(a) férias existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) férias.",
+          "required": true
+        },
+        {
+          "name": "codigo_funcionario",
+          "type": "string",
+          "description": "Campo 'codigo_funcionario' do(a) férias.",
+          "required": false
+        },
+        {
+          "name": "data_inicio",
+          "type": "string",
+          "description": "Campo 'data_inicio' do(a) férias.",
+          "required": false
+        },
+        {
+          "name": "dias",
+          "type": "string",
+          "description": "Campo 'dias' do(a) férias.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_ferias"
+      ],
+      "namespace": "rh_ferias",
+      "domain": "rh"
+    },
+    {
+      "name": "programar_ferias",
+      "description": "Programa as férias de um funcionário respeitando o período aquisitivo.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) férias.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_funcionario"
+      ],
+      "namespace": "rh_ferias",
+      "domain": "rh"
+    },
+    {
+      "name": "consultar_ponto",
+      "description": "Consulta os dados de um(a) marcação de ponto pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) marcação de ponto.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "rh_ponto",
+      "domain": "rh"
+    },
+    {
+      "name": "pesquisar_ponto",
+      "description": "Pesquisa e lista marcação de ponto por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "rh_ponto",
+      "domain": "rh"
+    },
+    {
+      "name": "incluir_ponto",
+      "description": "Inclui (cadastra) um(a) novo(a) marcação de ponto.",
+      "parameters": [
+        {
+          "name": "codigo_funcionario",
+          "type": "string",
+          "description": "Campo 'codigo_funcionario' do(a) marcação de ponto.",
+          "required": true
+        },
+        {
+          "name": "data",
+          "type": "string",
+          "description": "Campo 'data' do(a) marcação de ponto.",
+          "required": true
+        },
+        {
+          "name": "horario",
+          "type": "string",
+          "description": "Campo 'horario' do(a) marcação de ponto.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "rh_ponto",
+      "domain": "rh"
+    },
+    {
+      "name": "alterar_ponto",
+      "description": "Altera os dados de um(a) marcação de ponto existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) marcação de ponto.",
+          "required": true
+        },
+        {
+          "name": "codigo_funcionario",
+          "type": "string",
+          "description": "Campo 'codigo_funcionario' do(a) marcação de ponto.",
+          "required": false
+        },
+        {
+          "name": "data",
+          "type": "string",
+          "description": "Campo 'data' do(a) marcação de ponto.",
+          "required": false
+        },
+        {
+          "name": "horario",
+          "type": "string",
+          "description": "Campo 'horario' do(a) marcação de ponto.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_ponto"
+      ],
+      "namespace": "rh_ponto",
+      "domain": "rh"
+    },
+    {
+      "name": "apurar_ponto",
+      "description": "Apura horas trabalhadas, extras e faltas do período.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) marcação de ponto.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "rh_ponto",
+      "domain": "rh"
+    },
+    {
+      "name": "consultar_beneficio",
+      "description": "Consulta os dados de um(a) benefício pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) benefício.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "rh_beneficio",
+      "domain": "rh"
+    },
+    {
+      "name": "pesquisar_beneficio",
+      "description": "Pesquisa e lista benefício por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "rh_beneficio",
+      "domain": "rh"
+    },
+    {
+      "name": "incluir_beneficio",
+      "description": "Inclui (cadastra) um(a) novo(a) benefício.",
+      "parameters": [
+        {
+          "name": "codigo_funcionario",
+          "type": "string",
+          "description": "Campo 'codigo_funcionario' do(a) benefício.",
+          "required": true
+        },
+        {
+          "name": "tipo_beneficio",
+          "type": "string",
+          "description": "Campo 'tipo_beneficio' do(a) benefício.",
+          "required": true
+        },
+        {
+          "name": "valor",
+          "type": "string",
+          "description": "Campo 'valor' do(a) benefício.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "rh_beneficio",
+      "domain": "rh"
+    },
+    {
+      "name": "alterar_beneficio",
+      "description": "Altera os dados de um(a) benefício existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) benefício.",
+          "required": true
+        },
+        {
+          "name": "codigo_funcionario",
+          "type": "string",
+          "description": "Campo 'codigo_funcionario' do(a) benefício.",
+          "required": false
+        },
+        {
+          "name": "tipo_beneficio",
+          "type": "string",
+          "description": "Campo 'tipo_beneficio' do(a) benefício.",
+          "required": false
+        },
+        {
+          "name": "valor",
+          "type": "string",
+          "description": "Campo 'valor' do(a) benefício.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_beneficio"
+      ],
+      "namespace": "rh_beneficio",
+      "domain": "rh"
+    },
+    {
+      "name": "conceder_beneficio",
+      "description": "Concede um benefício (vale-transporte, refeição, plano de saúde) ao funcionário.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) benefício.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_beneficio"
+      ],
+      "namespace": "rh_beneficio",
+      "domain": "rh"
+    },
+    {
+      "name": "consultar_transportadora",
+      "description": "Consulta os dados de um(a) transportadora pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) transportadora.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "logistica_transportadora",
+      "domain": "logistica"
+    },
+    {
+      "name": "pesquisar_transportadora",
+      "description": "Pesquisa e lista transportadora por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "logistica_transportadora",
+      "domain": "logistica"
+    },
+    {
+      "name": "incluir_transportadora",
+      "description": "Inclui (cadastra) um(a) novo(a) transportadora.",
+      "parameters": [
+        {
+          "name": "razao_social",
+          "type": "string",
+          "description": "Campo 'razao_social' do(a) transportadora.",
+          "required": true
+        },
+        {
+          "name": "cnpj",
+          "type": "string",
+          "description": "Campo 'cnpj' do(a) transportadora.",
+          "required": true
+        },
+        {
+          "name": "modal",
+          "type": "string",
+          "description": "Campo 'modal' do(a) transportadora.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "logistica_transportadora",
+      "domain": "logistica"
+    },
+    {
+      "name": "alterar_transportadora",
+      "description": "Altera os dados de um(a) transportadora existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) transportadora.",
+          "required": true
+        },
+        {
+          "name": "razao_social",
+          "type": "string",
+          "description": "Campo 'razao_social' do(a) transportadora.",
+          "required": false
+        },
+        {
+          "name": "cnpj",
+          "type": "string",
+          "description": "Campo 'cnpj' do(a) transportadora.",
+          "required": false
+        },
+        {
+          "name": "modal",
+          "type": "string",
+          "description": "Campo 'modal' do(a) transportadora.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_transportadora"
+      ],
+      "namespace": "logistica_transportadora",
+      "domain": "logistica"
+    },
+    {
+      "name": "avaliar_transportadora",
+      "description": "Avalia o desempenho da transportadora (prazo, avarias, custo).",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) transportadora.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_transportadora"
+      ],
+      "namespace": "logistica_transportadora",
+      "domain": "logistica"
+    },
+    {
+      "name": "consultar_frete",
+      "description": "Consulta os dados de um(a) frete pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) frete.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "logistica_frete",
+      "domain": "logistica"
+    },
+    {
+      "name": "pesquisar_frete",
+      "description": "Pesquisa e lista frete por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "logistica_frete",
+      "domain": "logistica"
+    },
+    {
+      "name": "incluir_frete",
+      "description": "Inclui (cadastra) um(a) novo(a) frete.",
+      "parameters": [
+        {
+          "name": "codigo_transportadora",
+          "type": "string",
+          "description": "Campo 'codigo_transportadora' do(a) frete.",
+          "required": true
+        },
+        {
+          "name": "peso",
+          "type": "string",
+          "description": "Campo 'peso' do(a) frete.",
+          "required": true
+        },
+        {
+          "name": "cep_destino",
+          "type": "string",
+          "description": "Campo 'cep_destino' do(a) frete.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "logistica_frete",
+      "domain": "logistica"
+    },
+    {
+      "name": "alterar_frete",
+      "description": "Altera os dados de um(a) frete existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) frete.",
+          "required": true
+        },
+        {
+          "name": "codigo_transportadora",
+          "type": "string",
+          "description": "Campo 'codigo_transportadora' do(a) frete.",
+          "required": false
+        },
+        {
+          "name": "peso",
+          "type": "string",
+          "description": "Campo 'peso' do(a) frete.",
+          "required": false
+        },
+        {
+          "name": "cep_destino",
+          "type": "string",
+          "description": "Campo 'cep_destino' do(a) frete.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_frete"
+      ],
+      "namespace": "logistica_frete",
+      "domain": "logistica"
+    },
+    {
+      "name": "cotar_frete",
+      "description": "Cota o valor e o prazo do frete com as transportadoras cadastradas.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) frete.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_transportadora",
+        "consultar_pedido_venda"
+      ],
+      "namespace": "logistica_frete",
+      "domain": "logistica"
+    },
+    {
+      "name": "consultar_entrega",
+      "description": "Consulta os dados de um(a) entrega pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) entrega.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "logistica_entrega",
+      "domain": "logistica"
+    },
+    {
+      "name": "pesquisar_entrega",
+      "description": "Pesquisa e lista entrega por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "logistica_entrega",
+      "domain": "logistica"
+    },
+    {
+      "name": "incluir_entrega",
+      "description": "Inclui (cadastra) um(a) novo(a) entrega.",
+      "parameters": [
+        {
+          "name": "codigo_nota_fiscal",
+          "type": "string",
+          "description": "Campo 'codigo_nota_fiscal' do(a) entrega.",
+          "required": true
+        },
+        {
+          "name": "endereco",
+          "type": "string",
+          "description": "Campo 'endereco' do(a) entrega.",
+          "required": true
+        },
+        {
+          "name": "data_prevista",
+          "type": "string",
+          "description": "Campo 'data_prevista' do(a) entrega.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "logistica_entrega",
+      "domain": "logistica"
+    },
+    {
+      "name": "alterar_entrega",
+      "description": "Altera os dados de um(a) entrega existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) entrega.",
+          "required": true
+        },
+        {
+          "name": "codigo_nota_fiscal",
+          "type": "string",
+          "description": "Campo 'codigo_nota_fiscal' do(a) entrega.",
+          "required": false
+        },
+        {
+          "name": "endereco",
+          "type": "string",
+          "description": "Campo 'endereco' do(a) entrega.",
+          "required": false
+        },
+        {
+          "name": "data_prevista",
+          "type": "string",
+          "description": "Campo 'data_prevista' do(a) entrega.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_entrega"
+      ],
+      "namespace": "logistica_entrega",
+      "domain": "logistica"
+    },
+    {
+      "name": "rastrear_entrega",
+      "description": "Rastreia a entrega e retorna a posição atual da carga.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) entrega.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_romaneio"
+      ],
+      "namespace": "logistica_entrega",
+      "domain": "logistica"
+    },
+    {
+      "name": "consultar_rota",
+      "description": "Consulta os dados de um(a) rota de entrega pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) rota de entrega.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "logistica_rota",
+      "domain": "logistica"
+    },
+    {
+      "name": "pesquisar_rota",
+      "description": "Pesquisa e lista rota de entrega por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "logistica_rota",
+      "domain": "logistica"
+    },
+    {
+      "name": "incluir_rota",
+      "description": "Inclui (cadastra) um(a) novo(a) rota de entrega.",
+      "parameters": [
+        {
+          "name": "regiao",
+          "type": "string",
+          "description": "Campo 'regiao' do(a) rota de entrega.",
+          "required": true
+        },
+        {
+          "name": "veiculo",
+          "type": "string",
+          "description": "Campo 'veiculo' do(a) rota de entrega.",
+          "required": true
+        },
+        {
+          "name": "data",
+          "type": "string",
+          "description": "Campo 'data' do(a) rota de entrega.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "logistica_rota",
+      "domain": "logistica"
+    },
+    {
+      "name": "alterar_rota",
+      "description": "Altera os dados de um(a) rota de entrega existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) rota de entrega.",
+          "required": true
+        },
+        {
+          "name": "regiao",
+          "type": "string",
+          "description": "Campo 'regiao' do(a) rota de entrega.",
+          "required": false
+        },
+        {
+          "name": "veiculo",
+          "type": "string",
+          "description": "Campo 'veiculo' do(a) rota de entrega.",
+          "required": false
+        },
+        {
+          "name": "data",
+          "type": "string",
+          "description": "Campo 'data' do(a) rota de entrega.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_rota"
+      ],
+      "namespace": "logistica_rota",
+      "domain": "logistica"
+    },
+    {
+      "name": "otimizar_rota",
+      "description": "Otimiza a sequência de entregas de uma rota.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) rota de entrega.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "logistica_rota",
+      "domain": "logistica"
+    },
+    {
+      "name": "consultar_romaneio",
+      "description": "Consulta os dados de um(a) romaneio de carga pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) romaneio de carga.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "logistica_romaneio",
+      "domain": "logistica"
+    },
+    {
+      "name": "pesquisar_romaneio",
+      "description": "Pesquisa e lista romaneio de carga por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "logistica_romaneio",
+      "domain": "logistica"
+    },
+    {
+      "name": "incluir_romaneio",
+      "description": "Inclui (cadastra) um(a) novo(a) romaneio de carga.",
+      "parameters": [
+        {
+          "name": "veiculo",
+          "type": "string",
+          "description": "Campo 'veiculo' do(a) romaneio de carga.",
+          "required": true
+        },
+        {
+          "name": "motorista",
+          "type": "string",
+          "description": "Campo 'motorista' do(a) romaneio de carga.",
+          "required": true
+        },
+        {
+          "name": "notas_fiscais",
+          "type": "string",
+          "description": "Campo 'notas_fiscais' do(a) romaneio de carga.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_nota_fiscal",
+        "cotar_frete"
+      ],
+      "namespace": "logistica_romaneio",
+      "domain": "logistica"
+    },
+    {
+      "name": "alterar_romaneio",
+      "description": "Altera os dados de um(a) romaneio de carga existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) romaneio de carga.",
+          "required": true
+        },
+        {
+          "name": "veiculo",
+          "type": "string",
+          "description": "Campo 'veiculo' do(a) romaneio de carga.",
+          "required": false
+        },
+        {
+          "name": "motorista",
+          "type": "string",
+          "description": "Campo 'motorista' do(a) romaneio de carga.",
+          "required": false
+        },
+        {
+          "name": "notas_fiscais",
+          "type": "string",
+          "description": "Campo 'notas_fiscais' do(a) romaneio de carga.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_romaneio"
+      ],
+      "namespace": "logistica_romaneio",
+      "domain": "logistica"
+    },
+    {
+      "name": "fechar_romaneio",
+      "description": "Fecha o romaneio de carga liberando o veículo para saída.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) romaneio de carga.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "otimizar_rota"
+      ],
+      "namespace": "logistica_romaneio",
+      "domain": "logistica"
+    },
+    {
+      "name": "consultar_oportunidade",
+      "description": "Consulta os dados de um(a) oportunidade de venda pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) oportunidade de venda.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "crm_oportunidade",
+      "domain": "crm"
+    },
+    {
+      "name": "pesquisar_oportunidade",
+      "description": "Pesquisa e lista oportunidade de venda por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "crm_oportunidade",
+      "domain": "crm"
+    },
+    {
+      "name": "incluir_oportunidade",
+      "description": "Inclui (cadastra) um(a) novo(a) oportunidade de venda.",
+      "parameters": [
+        {
+          "name": "codigo_cliente",
+          "type": "string",
+          "description": "Campo 'codigo_cliente' do(a) oportunidade de venda.",
+          "required": true
+        },
+        {
+          "name": "valor_estimado",
+          "type": "string",
+          "description": "Campo 'valor_estimado' do(a) oportunidade de venda.",
+          "required": true
+        },
+        {
+          "name": "estagio",
+          "type": "string",
+          "description": "Campo 'estagio' do(a) oportunidade de venda.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "crm_oportunidade",
+      "domain": "crm"
+    },
+    {
+      "name": "alterar_oportunidade",
+      "description": "Altera os dados de um(a) oportunidade de venda existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) oportunidade de venda.",
+          "required": true
+        },
+        {
+          "name": "codigo_cliente",
+          "type": "string",
+          "description": "Campo 'codigo_cliente' do(a) oportunidade de venda.",
+          "required": false
+        },
+        {
+          "name": "valor_estimado",
+          "type": "string",
+          "description": "Campo 'valor_estimado' do(a) oportunidade de venda.",
+          "required": false
+        },
+        {
+          "name": "estagio",
+          "type": "string",
+          "description": "Campo 'estagio' do(a) oportunidade de venda.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_oportunidade"
+      ],
+      "namespace": "crm_oportunidade",
+      "domain": "crm"
+    },
+    {
+      "name": "ganhar_oportunidade",
+      "description": "Marca a oportunidade como ganha e gera o orçamento correspondente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) oportunidade de venda.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_cliente"
+      ],
+      "namespace": "crm_oportunidade",
+      "domain": "crm"
+    },
+    {
+      "name": "consultar_contato",
+      "description": "Consulta os dados de um(a) contato pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) contato.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "crm_contato",
+      "domain": "crm"
+    },
+    {
+      "name": "pesquisar_contato",
+      "description": "Pesquisa e lista contato por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "crm_contato",
+      "domain": "crm"
+    },
+    {
+      "name": "incluir_contato",
+      "description": "Inclui (cadastra) um(a) novo(a) contato.",
+      "parameters": [
+        {
+          "name": "nome",
+          "type": "string",
+          "description": "Campo 'nome' do(a) contato.",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Campo 'email' do(a) contato.",
+          "required": true
+        },
+        {
+          "name": "telefone",
+          "type": "string",
+          "description": "Campo 'telefone' do(a) contato.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "crm_contato",
+      "domain": "crm"
+    },
+    {
+      "name": "alterar_contato",
+      "description": "Altera os dados de um(a) contato existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) contato.",
+          "required": true
+        },
+        {
+          "name": "nome",
+          "type": "string",
+          "description": "Campo 'nome' do(a) contato.",
+          "required": false
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Campo 'email' do(a) contato.",
+          "required": false
+        },
+        {
+          "name": "telefone",
+          "type": "string",
+          "description": "Campo 'telefone' do(a) contato.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_contato"
+      ],
+      "namespace": "crm_contato",
+      "domain": "crm"
+    },
+    {
+      "name": "registrar_interacao_contato",
+      "description": "Registra uma interação (ligação, reunião, e-mail) com o contato.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) contato.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_contato"
+      ],
+      "namespace": "crm_contato",
+      "domain": "crm"
+    },
+    {
+      "name": "consultar_campanha",
+      "description": "Consulta os dados de um(a) campanha de marketing pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) campanha de marketing.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "crm_campanha",
+      "domain": "crm"
+    },
+    {
+      "name": "pesquisar_campanha",
+      "description": "Pesquisa e lista campanha de marketing por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "crm_campanha",
+      "domain": "crm"
+    },
+    {
+      "name": "incluir_campanha",
+      "description": "Inclui (cadastra) um(a) novo(a) campanha de marketing.",
+      "parameters": [
+        {
+          "name": "nome",
+          "type": "string",
+          "description": "Campo 'nome' do(a) campanha de marketing.",
+          "required": true
+        },
+        {
+          "name": "publico_alvo",
+          "type": "string",
+          "description": "Campo 'publico_alvo' do(a) campanha de marketing.",
+          "required": true
+        },
+        {
+          "name": "canal",
+          "type": "string",
+          "description": "Campo 'canal' do(a) campanha de marketing.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "crm_campanha",
+      "domain": "crm"
+    },
+    {
+      "name": "alterar_campanha",
+      "description": "Altera os dados de um(a) campanha de marketing existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) campanha de marketing.",
+          "required": true
+        },
+        {
+          "name": "nome",
+          "type": "string",
+          "description": "Campo 'nome' do(a) campanha de marketing.",
+          "required": false
+        },
+        {
+          "name": "publico_alvo",
+          "type": "string",
+          "description": "Campo 'publico_alvo' do(a) campanha de marketing.",
+          "required": false
+        },
+        {
+          "name": "canal",
+          "type": "string",
+          "description": "Campo 'canal' do(a) campanha de marketing.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_campanha"
+      ],
+      "namespace": "crm_campanha",
+      "domain": "crm"
+    },
+    {
+      "name": "disparar_campanha",
+      "description": "Dispara a campanha para o público-alvo pelo canal configurado.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) campanha de marketing.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "pesquisar_contato"
+      ],
+      "namespace": "crm_campanha",
+      "domain": "crm"
+    },
+    {
+      "name": "consultar_atendimento",
+      "description": "Consulta os dados de um(a) atendimento ao cliente pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) atendimento ao cliente.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "crm_atendimento",
+      "domain": "crm"
+    },
+    {
+      "name": "pesquisar_atendimento",
+      "description": "Pesquisa e lista atendimento ao cliente por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "crm_atendimento",
+      "domain": "crm"
+    },
+    {
+      "name": "incluir_atendimento",
+      "description": "Inclui (cadastra) um(a) novo(a) atendimento ao cliente.",
+      "parameters": [
+        {
+          "name": "codigo_cliente",
+          "type": "string",
+          "description": "Campo 'codigo_cliente' do(a) atendimento ao cliente.",
+          "required": true
+        },
+        {
+          "name": "assunto",
+          "type": "string",
+          "description": "Campo 'assunto' do(a) atendimento ao cliente.",
+          "required": true
+        },
+        {
+          "name": "prioridade",
+          "type": "string",
+          "description": "Campo 'prioridade' do(a) atendimento ao cliente.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "crm_atendimento",
+      "domain": "crm"
+    },
+    {
+      "name": "alterar_atendimento",
+      "description": "Altera os dados de um(a) atendimento ao cliente existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) atendimento ao cliente.",
+          "required": true
+        },
+        {
+          "name": "codigo_cliente",
+          "type": "string",
+          "description": "Campo 'codigo_cliente' do(a) atendimento ao cliente.",
+          "required": false
+        },
+        {
+          "name": "assunto",
+          "type": "string",
+          "description": "Campo 'assunto' do(a) atendimento ao cliente.",
+          "required": false
+        },
+        {
+          "name": "prioridade",
+          "type": "string",
+          "description": "Campo 'prioridade' do(a) atendimento ao cliente.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_atendimento"
+      ],
+      "namespace": "crm_atendimento",
+      "domain": "crm"
+    },
+    {
+      "name": "encerrar_atendimento",
+      "description": "Encerra o chamado de atendimento registrando a solução.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) atendimento ao cliente.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_atendimento"
+      ],
+      "namespace": "crm_atendimento",
+      "domain": "crm"
+    },
+    {
+      "name": "consultar_contrato_cliente",
+      "description": "Consulta os dados de um(a) contrato de cliente pelo código.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) contrato de cliente.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "crm_contrato_cliente",
+      "domain": "crm"
+    },
+    {
+      "name": "pesquisar_contrato_cliente",
+      "description": "Pesquisa e lista contrato de cliente por filtro livre (nome, período, status).",
+      "parameters": [
+        {
+          "name": "filtro",
+          "type": "string",
+          "description": "Texto ou expressão de filtro.",
+          "required": true
+        },
+        {
+          "name": "limite",
+          "type": "integer",
+          "description": "Quantidade máxima de registros.",
+          "required": false
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "crm_contrato_cliente",
+      "domain": "crm"
+    },
+    {
+      "name": "incluir_contrato_cliente",
+      "description": "Inclui (cadastra) um(a) novo(a) contrato de cliente.",
+      "parameters": [
+        {
+          "name": "codigo_cliente",
+          "type": "string",
+          "description": "Campo 'codigo_cliente' do(a) contrato de cliente.",
+          "required": true
+        },
+        {
+          "name": "vigencia",
+          "type": "string",
+          "description": "Campo 'vigencia' do(a) contrato de cliente.",
+          "required": true
+        },
+        {
+          "name": "valor_mensal",
+          "type": "string",
+          "description": "Campo 'valor_mensal' do(a) contrato de cliente.",
+          "required": true
+        }
+      ],
+      "dependsOn": [],
+      "namespace": "crm_contrato_cliente",
+      "domain": "crm"
+    },
+    {
+      "name": "alterar_contrato_cliente",
+      "description": "Altera os dados de um(a) contrato de cliente existente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) contrato de cliente.",
+          "required": true
+        },
+        {
+          "name": "codigo_cliente",
+          "type": "string",
+          "description": "Campo 'codigo_cliente' do(a) contrato de cliente.",
+          "required": false
+        },
+        {
+          "name": "vigencia",
+          "type": "string",
+          "description": "Campo 'vigencia' do(a) contrato de cliente.",
+          "required": false
+        },
+        {
+          "name": "valor_mensal",
+          "type": "string",
+          "description": "Campo 'valor_mensal' do(a) contrato de cliente.",
+          "required": false
+        }
+      ],
+      "dependsOn": [
+        "consultar_contrato_cliente"
+      ],
+      "namespace": "crm_contrato_cliente",
+      "domain": "crm"
+    },
+    {
+      "name": "renovar_contrato_cliente",
+      "description": "Renova o contrato de serviço do cliente.",
+      "parameters": [
+        {
+          "name": "codigo",
+          "type": "string",
+          "description": "Código do(a) contrato de cliente.",
+          "required": true
+        }
+      ],
+      "dependsOn": [
+        "consultar_contrato_cliente"
+      ],
+      "namespace": "crm_contrato_cliente",
+      "domain": "crm"
+    }
+  ]
+}

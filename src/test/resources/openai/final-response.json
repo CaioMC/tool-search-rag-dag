@@ -1,0 +1,8 @@
+{
+  "id": "resp_3",
+  "object": "response",
+  "output": [
+    {"id": "msg_1", "type": "message", "role": "assistant", "status": "completed", "content": [{"type": "output_text", "text": "Nota emitida.", "annotations": []}]}
+  ],
+  "usage": {"input_tokens": 300, "input_tokens_details": {"cached_tokens": 0}, "output_tokens": 5}
+}

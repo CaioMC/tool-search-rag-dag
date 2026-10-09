@@ -1,0 +1,15 @@
+{
+  "id": "resp_1",
+  "object": "response",
+  "model": "gpt-5.4-mini",
+  "output": [
+    {"id": "tsc_1", "arguments": {"paths": ["faturamento_nota_fiscal"]}, "call_id": null, "execution": "server", "status": "completed", "type": "tool_search_call", "created_by": null},
+    {"id": "tso_1", "call_id": null, "execution": "server", "status": "completed", "type": "tool_search_output", "created_by": null, "tools": [
+      {"type": "namespace", "name": "faturamento_nota_fiscal", "description": "Faturamento - nota fiscal.", "tools": [
+        {"name": "emitir_nota_fiscal", "type": "function", "defer_loading": true, "description": "Emite NF-e.", "output_schema": null, "parameters": {"type": "object", "properties": {}}}
+      ]}
+    ]},
+    {"arguments": "{\"codigo\":\"42\"}", "call_id": "call_9", "name": "emitir_nota_fiscal", "type": "function_call", "id": "fc_1", "namespace": "faturamento_nota_fiscal", "status": "completed"}
+  ],
+  "usage": {"input_tokens": 1200, "input_tokens_details": {"cached_tokens": 1024}, "output_tokens": 30}
+}
