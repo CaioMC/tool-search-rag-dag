@@ -109,7 +109,104 @@ O BM25 nem chega a achar: "pague" não casa com "pagar"/"pagamento" pelo radical
 reforça o RAG híbrido e um top-k calibrado com pedidos reais. No modo `client` há ainda uma
 segunda chance: o modelo pode chamar `tool_search` de novo com outro objetivo.
 
-## 4. Recomendações
+## 4. Escala: 1000 ferramentas (C8 e C9)
+
+### 4.1 Tool search hospedado (C8)
+
+Pergunta: o tool search **hospedado** da OpenAI aguenta um catálogo 4× maior? O guia oficial não
+documenta um número máximo de ferramentas, então medimos. Catálogo
+`catalog/exemplos/catalogo-1000.json`: as mesmas 250 ferramentas (e dependências) do catálogo
+padrão + 30 domínios extras = **1000 funções com `defer_loading` em 200 namespaces**. Só o modo
+`hosted`, sem RAG + DAG no cliente; a trava do DAG continua ligada.
+
+```
+TOOLSEARCH_CATALOG=catalog/exemplos/catalogo-1000.json ./toolsearch comparar "Emita a nota fiscal do pedido de venda 42" --modos hosted --detalhes
+```
+
+3 execuções com 1000 e, para comparar no mesmo dia, 3 com 250 (`gpt-5.4-mini`, 09/10/2026):
+
+| Catálogo | Execução | Emitiu a nota? | Chamadas | Buscas | Barradas | Tokens de entrada (cache) | Tempo |
+|---|---:|---|---:|---:|---:|---:|---:|
+| 1000 | 1 | **sim** | 6 | 3 | 2 | 64.317 (40.448) | 36,7 s |
+| 1000 | 2 | não (desistiu ao ser barrado) | 5 | 3 | 3 | 50.204 (45.568) | 26,7 s |
+| 1000 | 3 | não (criou a nota com `incluir_nota_fiscal`) | 6 | 3 | 3 | 60.329 (53.760) | 32,5 s |
+| 250 | 1 | não (desistiu ao ser barrado) | 6 | 3 | 2 | 24.839 (14.848) | 16,9 s |
+| 250 | 2 | não (criou a nota com `incluir_nota_fiscal`) | 3 | 1 | 1 | 9.813 (7.168) | 8,1 s |
+| 250 | 3 | não (criou a nota com `incluir_nota_fiscal`) | 4 | 3 | 2 | 15.529 (12.288) | 11,5 s |
+
+Como as execuções que falham terminam mais cedo (e gastam menos), a comparação justa é **por
+chamada ao modelo**:
+
+| Por chamada ao modelo (média das 3) | 250 ferramentas | 1000 ferramentas | Variação |
+|---|---:|---:|---:|
+| Tokens de entrada | ~3.800 | ~10.300 | **~2,7×** |
+| Latência | ~2,8 s | ~5,6 s | **~2×** |
+
+### O que o C8 mostra
+
+1. **A API aceita 1000 funções deferidas**: nenhuma recusa por limite. O tool search hospedado
+   "aguenta" o volume.
+2. **O custo fixo cresce com o catálogo**: o índice de 200 namespaces (nome + descrição) entra em
+   **toda** chamada. 4× mais ferramentas → ~2,7× mais tokens e ~2× mais latência por chamada,
+   antes de o modelo fazer qualquer coisa útil. O cache ajuda no preço, não no tamanho do contexto.
+3. **Aguentar não é resolver**: só 1 das 6 execuções emitiu a nota. A busca hospedada não conhece
+   as dependências entre namespaces, então o modelo é barrado pela trava do DAG e, muitas vezes,
+   desiste ou troca a tarefa por uma parecida (`incluir_nota_fiscal` em vez de
+   `emitir_nota_fiscal`). Esse problema já existe com 250 e não melhora com 1000.
+4. **Para catálogos grandes, o modo `client` (RAG + DAG) é o caminho**: a 1ª chamada leva 0
+   ferramentas qualquer que seja o tamanho do catálogo, e uma busca devolve a ferramenta com
+   todos os pré-requisitos, já ordenados (ver 4.2).
+
+### 4.2 Tool search no cliente com RAG + DAG (C9)
+
+Mesmo catálogo de 1000 ferramentas, mesmo pedido, modo `client` (RAG BM25 top 5 + DAG), 3
+execuções no mesmo dia do C8:
+
+```
+TOOLSEARCH_CATALOG=catalog/exemplos/catalogo-1000.json ./toolsearch comparar "Emita a nota fiscal do pedido de venda 42" --modos client --detalhes
+```
+
+| Execução | Emitiu a nota? | Chamadas | Buscas | Barradas | Tokens de entrada (cache) | Tempo |
+|---:|---|---:|---:|---:|---:|---:|
+| 1 | **sim** | 10 | 1 | 1 | 14.362 (8.704) | 15,7 s |
+| 2 | não (parou em `incluir_nota_fiscal`) | 5 | 1 | 0 | 6.200 (2.048) | 9,3 s |
+| 3 | **sim** | 7 | 1 | 0 | 10.330 (5.120) | 10,7 s |
+
+Em todas as execuções, a única busca devolveu as 6 ferramentas necessárias, com os pré-requisitos
+completados pelo DAG. O resto variou com o objetivo que o modelo escreveu: na execução 1 vieram
+9 ferramentas (+ `consultar_nota_fiscal`, `alterar_nota_fiscal`, `incluir_nota_fiscal`); nas
+execuções 2 e 3, com um objetivo mais longo, o BM25 trouxe também `aprovar_pedido_venda` e o DAG
+acrescentou os pré-requisitos dela (`analisar_credito_cliente`, `pesquisar_titulo_receber`), 12 no
+total.
+
+### 4.3 C8 × C9: as mesmas 1000 ferramentas
+
+| Média das 3 execuções | `hosted` (C8) | `client` RAG + DAG (C9) | Diferença |
+|---|---:|---:|---:|
+| Ferramentas na 1ª chamada | 1000 | **0** | — |
+| Buscas por execução | 3 | **1** | 3× menos |
+| Tokens de entrada por execução | ~58.300 | **~10.300** | **~5,7× menos** |
+| Tokens de entrada por chamada | ~10.300 | **~1.400** | **~7× menos** |
+| Latência por chamada | ~5,6 s | **~1,7 s** | **~3,4× menor** |
+| Tempo por execução | ~32,0 s | **~11,9 s** | **~2,7× menor** |
+| Execuções que emitiram a nota | 1 de 3 | **2 de 3** | — |
+
+### O que a comparação mostra
+
+1. **O custo do `client` não depende do tamanho do catálogo.** ~1.400 tokens por chamada com 1000
+   ferramentas, na mesma faixa do `client` com 250 (~1.600 na medição de 06/10). No `hosted`, o
+   índice de namespaces cresce com o catálogo e vai em toda chamada.
+2. **Uma busca basta**: o DAG entrega os pré-requisitos que estão em outros namespaces. O `hosted`
+   precisou de 3 buscas e foi barrado 2 a 3 vezes por execução.
+3. **Não é perfeito**: o RAG também traz ferramentas parecidas e ruidosas (`incluir_nota_fiscal`),
+   e numa execução o modelo confundiu "incluir" com "emitir". Um RAG mais preciso (híbrido, nota
+   mínima) ou descrições mais distintas atacam esse ponto.
+
+> Amostra pequena (3 + 3) e modelo não determinístico: a taxa de conclusão e os tokens variam
+> entre rodadas (na medição de 06/10, o `hosted` de 250 concluiu). O que se mantém é a ordem de
+> grandeza do custo por chamada e o motivo das falhas: dependências entre namespaces.
+
+## 5. Recomendações
 
 1. **Tool search no cliente com RAG + DAG** como caminho principal (modelos gpt-5.4+): menor custo,
    uma busca resolve dependências, e o catálogo pode vir de qualquer lugar (inclusive estado do

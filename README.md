@@ -366,6 +366,29 @@ O que os números mostram:
 5. **A trava do DAG funcionou em todos os modos:** chamadas fora de ordem foram barradas e o modelo
    se corrigiu.
 
+### Escala: 1000 ferramentas
+
+Os cenários **C8** e **C9** repetem o pedido com um catálogo 4× maior: **1000 ferramentas** em 200
+namespaces (as mesmas 250 + 30 domínios extras de ERP). O C8 usa o tool search **hospedado**
+(1000 funções com `defer_loading`); o C9 usa o tool search **no cliente com RAG + DAG**.
+
+| Média de 3 execuções | `hosted` (C8) | `client` RAG + DAG (C9) |
+|---|---:|---:|
+| Ferramentas na 1ª chamada | 1000 | **0** |
+| Buscas por execução | 3 | **1** |
+| Tokens de entrada por execução | ~58.300 | **~10.300** (5,7× menos) |
+| Latência por chamada | ~5,6 s | **~1,7 s** (3,4× menor) |
+| Tempo por execução | ~32,0 s | **~11,9 s** (2,7× menor) |
+| Execuções que emitiram a nota | 1 de 3 | **2 de 3** |
+
+- **A API aceita as 1000 funções**: não houve erro de limite (o guia oficial não documenta um teto).
+- **No `hosted`, o custo fixo cresce com o catálogo**: o índice de namespaces vai em toda chamada
+  (~2,7× mais tokens por chamada que com 250). No `client`, o custo por chamada fica igual.
+- **Uma busca do RAG + DAG resolve as dependências entre namespaces**; o `hosted` busca 3 vezes e é
+  barrado pela trava do DAG.
+
+Detalhes em [docs/resultados.md](docs/resultados.md#4-escala-1000-ferramentas-c8-e-c9).
+
 > LLMs não são determinísticos: rodando de novo, os números mudam. Use-os como ordem de grandeza e
 > meça você mesmo com `./toolsearch comparar "<pedido>" --detalhes`. Detalhes, trechos das
 > execuções, BM25 × embeddings e o efeito do top-k em [docs/resultados.md](docs/resultados.md).
@@ -398,7 +421,7 @@ O que os números mostram:
 ### Pela IDE, sem argumentos
 
 Cada caso de [docs/como-testar.md](docs/como-testar.md) tem uma classe com `main` em
-`adapters/cli/scenario`: `local/` (B1 a B7, sem chave) e `model/` (C1 a C7, chamam o modelo).
+`adapters/cli/scenario`: `local/` (B1 a B7, sem chave) e `model/` (C1 a C9, chamam o modelo).
 `local/ScenarioAllLocal` roda todos os que não precisam de chave.
 
 ### Variáveis de ambiente

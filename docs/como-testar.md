@@ -72,6 +72,8 @@ o terminal e a saída.
 | `model/ScenarioC5TopK` | C5. O top-k importa | sim |
 | `model/ScenarioC6ModelWithoutToolSearch` | C6. Modelos sem tool search | sim |
 | `model/ScenarioC7InvalidKey` | C7. Chave inválida | não (usa uma chave errada de propósito) |
+| `model/ScenarioC8HostedThousandTools` | C8. Tool search hospedado com 1000 ferramentas | sim |
+| `model/ScenarioC9ClientThousandTools` | C9. Tool search no cliente (RAG + DAG) com 1000 ferramentas | sim |
 
 O diretório de trabalho da execução deve ser a raiz do projeto (padrão do IntelliJ), para o
 `.env` ser encontrado. Pelo terminal, o mesmo cenário roda com:
@@ -441,6 +443,50 @@ OPENAI_API_KEY=errada ./toolsearch agente "x"
 ```
 Erro: OpenAI respondeu 401 em /responses: {"error":{"message":"Incorrect API key provided: errada. ...
 ```
+
+### C8. Tool search hospedado com 1000 ferramentas
+
+Isola o tool search **da OpenAI** num catálogo 4× maior: as 1000 funções vão com
+`defer_loading: true` em 200 namespaces e a OpenAI decide o que carregar. Não há RAG + DAG no
+cliente; a trava do DAG em tempo de execução continua ligada, como em todos os modos.
+
+O catálogo (`catalog/exemplos/catalogo-1000.json`) tem as **mesmas 250 ferramentas** do catálogo
+padrão, com as mesmas dependências, mais 30 domínios extras de ERP (produção, qualidade,
+manutenção, comércio exterior, WMS...). Assim o pedido da nota fiscal continua comparável. Para
+gerar de novo: `python3 scripts/gerar_catalogo.py --mil`.
+
+Pela IDE: `ScenarioC8HostedThousandTools`. No terminal:
+
+```bash
+TOOLSEARCH_CATALOG=catalog/exemplos/catalogo-1000.json ./toolsearch catalogo
+TOOLSEARCH_CATALOG=catalog/exemplos/catalogo-1000.json ./toolsearch comparar "Emita a nota fiscal do pedido de venda 42" --modos hosted --detalhes
+```
+
+Observe:
+- [ ] `catalogo` mostra 1000 ferramentas, 200 namespaces e 414 dependências;
+- [ ] a API aceita as 1000 funções deferidas (ou responde com erro de limite: anote a mensagem);
+- [ ] quantas linhas `tool_search (OpenAI) paths=[...]` aparecem até as 6 ferramentas da nota fiscal;
+- [ ] tokens de entrada, chamadas e tempo, comparados com o `hosted` de 250 (C3 e
+  [resultados](resultados.md#2-comparação-dos-5-modos)).
+
+### C9. Tool search no cliente (RAG + DAG) com 1000 ferramentas
+
+A contraparte do C8: o mesmo catálogo de 1000 ferramentas e o mesmo pedido, mas quem responde ao
+`tool_search` é a nossa aplicação, com RAG (BM25, top 5) + DAG.
+
+Pela IDE: `ScenarioC9ClientThousandTools`. No terminal:
+
+```bash
+TOOLSEARCH_CATALOG=catalog/exemplos/catalogo-1000.json ./toolsearch buscar "Emita a nota fiscal do pedido de venda 42"
+TOOLSEARCH_CATALOG=catalog/exemplos/catalogo-1000.json ./toolsearch comparar "Emita a nota fiscal do pedido de venda 42" --modos client --detalhes
+```
+
+Observe:
+- [ ] `buscar` devolve 9 ferramentas (5 do RAG + 4 do DAG) entre as 1000, sem chamar o modelo;
+- [ ] `Ferramentas enviadas na 1ª chamada: 0`, mesmo com 1000 no catálogo;
+- [ ] uma única linha `busca RAG+DAG ...` com os pré-requisitos marcados com `*`;
+- [ ] tokens de entrada e tempo bem abaixo do C8 (comparação em
+  [resultados](resultados.md#4-escala-1000-ferramentas-c8-e-c9)).
 
 ## D. Testando com as suas ferramentas
 
